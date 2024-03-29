@@ -1,0 +1,379 @@
+* {
+  padding: 0px;
+  margin: 0px;
+  box-sizing: border-box;
+}
+ul li {
+  list-style: none;
+}
+a {
+  text-decoration: none;
+}
+.negocio-detalle {
+  font-family: "Roboto", sans-serif;
+  border: 1px solid #e2e2e2;
+  padding: 24px;
+  border-radius: 24px;
+  display: flex;
+  flex-direction: column;
+}
+
+.negocio-detalle hr {
+  background: white !important;
+  margin-bottom: 0;
+}
+
+.negocio-detalle .columna1,
+.negocio-detalle .columna2 {
+  box-sizing: border-box;
+}
+
+.negocio-detalle .columna1 {
+  /* width: 64%; */
+  float: left;
+  padding-right: 1rem;
+}
+.columna1 .top-section {
+  text-align: center;
+}
+.columna1 .top-section h3 {
+  padding-top: 20px;
+  font-family: "Roboto", sans-serif;
+  font-size: 48px;
+  line-height: 120%;
+}
+.negocio-detalle .columna1 .icon {
+  color: #fbb327;
+}
+
+.negocio-detalle .columna2 {
+  float: right;
+}
+
+.negocio-detalle .columna2 iframe {
+  height: 280px !important;
+  width: 100%;
+}
+
+.negocio-detalle h3 {
+  font-size: 18px;
+  font-weight: bold;
+  margin-bottom: 0;
+}
+
+.negocio-detalle p,
+.negocio-detalle a {
+  font-size: 14px;
+  margin-bottom: 0;
+}
+
+.negocio-detalle .chevron {
+  cursor: pointer;
+  padding-left: 10px;
+}
+
+.negocio-detalle .horarios-ocultos p {
+  margin: 5px 0;
+}
+
+button {
+  background-color: #fd5a2b;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 14px;
+  margin: 4px 2px;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #005077;
+}
+.reviews-title {
+  font-size: 24px;
+  line-height: 48px;
+  font-weight: 400px;
+}
+.review-details {
+  gap: 0px;
+  margin-top: 28px;
+  margin-bottom: 28px;
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  row-gap: 10px;
+}
+.review {
+  padding: 26px 16px 45px;
+  border: 1px solid #d9d9d9;
+  border-radius: 4px;
+  width: calc(50% - 8px);
+}
+.review p {
+  font-size: 13px;
+  line-height: 20px;
+  font-weight: 400px;
+}
+.review h5 {
+  font-size: 18px;
+  line-height: 24px;
+  font-weight: 400px;
+  margin: 0;
+}
+.review .link a {
+  display: inline-block;
+  font-size: 12px;
+  line-height: normal;
+  font-weight: 400px;
+  text-decoration: underline;
+}
+.opiniones-row a{
+  text-decoration: underline;
+}
+.opiniones-row {
+  margin-top: 20px;
+}
+
+.category {
+  padding: 20px 0px;
+}
+.category p {
+  font-size: 16px;
+  line-height: 120%;
+}
+.category ul {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  justify-content: center;
+  padding-top: 10px;
+}
+.category ul li {
+  padding: 8px 12px;
+  background-color: #000;
+  color: #fff;
+  font-size: 14px;
+  line-height: 120%;
+  border-radius: 50px;
+}
+
+.info-contacto div p {
+  padding: 5px 0px;
+}
+.info-contacto div {
+  padding: 10px;
+  border-radius: 10px;
+  background-color: #f4f4f4;
+}
+.info-contacto li .hidden-hours {
+  position: absolute;
+  top: 35px;
+  width: 100%;
+}
+.info-contacto li {
+  position: relative;
+  padding: 4px 8px;
+  margin: 0px;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  font-size: 16px;
+  line-height: 120%;
+  color: #1a1a1a;
+  background: #f4f4f4;
+  border-radius: 300px;
+}
+.info-contacto {
+  padding: 0px 0px 20px;
+  margin: 0px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  align-items: center;
+}
+.info-contacto li .hidden-hours p {
+  font-size: 14px;
+}
+.info-contacto li:nth-child(3) {
+  font-size: 14px;
+}
+.contacto p {
+  font-size: 16px;
+  line-height: 120%;
+  padding: 30px 0px;
+}
+.address {
+  padding: 16px 0px;
+  display: flex;
+  gap: 12px;
+  align-items: center;
+}
+.address p {
+  padding: 0px;
+  font-size: 14px;
+  line-height: 120%;
+}
+.contacto h4 {
+  font-size: 24px;
+  line-height: 120%;
+}
+.reviews-title h2 {
+  font-size: 28px;
+  line-height: 120%;
+}
+.e-address-contacto {
+  flex-wrap: wrap;
+  padding: 40px 0px;
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  justify-content: center;
+}
+.e-address-contacto li a {
+  padding: 12px 23px;
+  background-color: transparent;
+  border: 1px solid #000;
+  color: #000;
+  font-size: 14px;
+  line-height: 120%;
+  border-radius: 50px;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+.opiniones-row p {
+  background-color: #f9f9f9;
+  padding: 16px 14px;
+  border-radius: 4px;
+  margin: 35px 0px;
+}
+.negocio-detalle {
+  background-color: #fff;
+}
+.abogados-sec {
+  padding-top: 36px;
+  max-width: 900px !important;
+}
+.abogados-sec h4 {
+  text-align: center;
+  font-size: 36px;
+  line-height: 120%;
+  padding-bottom: 24px;
+}
+.abogados-cards {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  row-gap: 20px;
+}
+.abogados-cards .card {
+  width: calc(33% - 10px);
+  border: 1px solid #d9d9d9;
+  border-radius: 5px;
+  padding: 18px 10px;
+  background-color: #fff;
+}
+.abogados-cards .card .heading {
+  display: flex;
+  padding-bottom: 20px;
+  gap: 10px;
+}
+.abogados-cards .card .heading img {
+  width: 50px;
+  height: 50px;
+  border-radius: 8px;
+  object-fit: cover;
+}
+.abogados-cards .card .heading h5 {
+  width: calc(100% - 60px);
+  font-size: 20px;
+  line-height: 120%;
+}
+.abogados-cards p {
+  font-size: 16px;
+  display: flex;
+  line-height: 120%;
+  gap: 10px;
+}
+
+.abogados-cards p span {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+}
+.abogados-cards .rating {
+  display: flex;
+  align-items: center;
+  padding: 10px 0px 35px;
+  justify-content: space-between;
+}
+.abogados-cards .btns {
+  display: flex;
+  gap: 12px;
+}
+.abogados-cards .btns a {
+  width: 50%;
+  display: flex;
+  justify-content: center;
+  padding: 10px 5px;
+  font-size: 16px;
+  line-height: 120%;
+  background-color: #000;
+  color: #fff;
+  border-radius: 4px;
+  transition: all 0.3s ease-in-out;
+}
+.abogados-cards .btns a:hover {
+  color: #000;
+  background-color: #f6f6f6;
+}
+.abogados-cards .btns a:last-child {
+  background-color: #f6f6f6;
+  color: #000;
+}
+.abogados-cards .btns a:last-child:hover {
+  background-color: #000;
+  color: #fff;
+}
+@media (max-width: 991px) {
+  .columna1 .top-section h3 {
+    font-size: 38px;
+  }
+  .abogados-cards .card {
+    width: calc(50% - 10px);
+  }
+  .abogados-sec h4 {
+    font-size: 30px;
+  }
+}
+@media (max-width: 768px) {
+  .negocio-detalle .columna1 {
+    width: 100%;
+    float: left;
+  }
+  .columna1 .top-section h3 {
+    font-size: 35px;
+  }
+  .negocio-detalle .columna2 {
+    width: 100%;
+    float: right;
+  }
+  .review-details {
+    flex-wrap: wrap;
+  }
+  .review {
+    width: calc(50% - 14px);
+  }
+}
+@media (max-width: 690px) {
+  .abogados-sec h4 {
+    font-size: 26px;
+  }
+  .review,
+  .abogados-cards .card {
+    width: 100%;
+  }
+}
