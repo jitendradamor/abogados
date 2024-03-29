@@ -9,6 +9,12 @@ ul li {
 a {
   text-decoration: none;
 }
+.single-negocios .ab-wrapper {
+  width: 100%;
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 24px 0;
+}
 .negocio-detalle {
   font-family: "Roboto", sans-serif;
   border: 1px solid #e2e2e2;
@@ -35,6 +41,9 @@ a {
 }
 .columna1 .top-section {
   text-align: center;
+}
+.columna1 .top-section img {
+  margin: 0 auto;
 }
 .columna1 .top-section h3 {
   padding-top: 20px;
@@ -95,7 +104,7 @@ button:hover {
 .reviews-title {
   font-size: 24px;
   line-height: 48px;
-  font-weight: 400px;
+  font-weight: 400;
 }
 .review-details {
   gap: 0px;
@@ -115,19 +124,19 @@ button:hover {
 .review p {
   font-size: 13px;
   line-height: 20px;
-  font-weight: 400px;
+  font-weight: 400;
 }
 .review h5 {
   font-size: 18px;
   line-height: 24px;
-  font-weight: 400px;
+  font-weight: 400;
   margin: 0;
 }
 .review .link a {
   display: inline-block;
   font-size: 12px;
   line-height: normal;
-  font-weight: 400px;
+  font-weight: 400;
   text-decoration: underline;
 }
 .opiniones-row a{
@@ -338,6 +347,305 @@ button:hover {
   background-color: #000;
   color: #fff;
 }
+/* Start CSS for detalle_negocio_ciudad Shortcode */
+.page-template-templates main {
+  width: 100%;
+  max-width: 900px;
+  padding: 0 25px;
+  margin: 0 auto;
+  background-color: #fff;
+}
+.page-template-templates h1,
+.page-template-templates h2,
+.page-template-templates h3,
+.page-template-templates h4,
+.page-template-templates h5,
+.page-template-templates h6 {
+  font-weight: 400;
+}
+.page-template-templates .wp-block-heading {
+  margin-top: 36px;
+}
+.page-template-templates main .custom-widget-container {
+  margin: 0;
+  width: 100% !important;
+  margin-bottom: 16px;
+}
+.page-template-templates .custom-widget-container img {
+  width: 100%;
+  max-height: 250px;
+  object-fit: cover;
+}
+.page-template-templates.singular .entry-header {
+  padding-top: 0;
+  padding-bottom: 24px;
+  text-align: left;
+}
+body.template-full-width .entry-content > * {
+  width: 100% !important;
+  max-width: 100% !important;
+}
+.page-template-templates .post-inner {
+  padding-top: 0;
+}
+.page-template-templates h1.entry-title {
+  font-size: 40px;
+  line-height: 48px;
+  font-weight: 400;
+}
+.negocios-ciudad {
+  border: 1px solid #D9D9D9;
+  padding: 26px 22px 16px;
+  color: #1A1A1A;
+  border-radius: 4px;
+  display: flex;
+}
+.negocios-ciudad .col1 {
+  width: calc(100% - 293px);
+  padding-right: 19px;
+}
+.inner-row {
+  display: flex;
+  column-gap: 16px;
+}
+.negocios-ciudad .col1-right .address p {
+  margin-bottom: 0;
+  line-height: 16px;
+}
+.negocios-ciudad .col1-right .address {
+  padding: 4px 0;
+  gap: 11px;
+}
+.negocios-ciudad .col1-right .address img {
+  opacity: 0.6;
+}
+.negocios-ciudad .col1-right .rating {
+  font-size: 14px;
+  line-height: 16px;
+  font-weight: 400;
+  margin: 0;
+}
+.negocios-ciudad .col1-right .rating .icon {
+  margin-right: 8px;
+  color: #FBB327;
+}
+.negocios-ciudad .col1-left img {
+  width: 56px;
+  height: auto;
+}
+.negocios-ciudad .col1-right h3 {
+  margin: 0;
+  font-size: 24px;
+  line-height: normal;
+  font-weight: 400;
+}
+.negocios-ciudad .col1-bottom {
+  width: 100%;
+  border-top: 1px solid #D9D9D9;
+  margin-top: 12px;
+  padding-top: 12px;
+}
+.negocios-ciudad .col1-bottom .info-contacto {
+  padding-bottom: 12px;
+}
+.negocios-ciudad .col1-bottom .info-contacto li {
+  font-size: 13px;
+  line-height: 16px;
+  border-radius: 8px;
+}
+.negocios-ciudad .col1-bottom .info-contacto li a {
+  text-decoration: none;
+  color: #1A1A11;
+}
+.negocios-ciudad .col1-bottom .info-contacto li a:hover {
+  color: #F59E0B;
+}
+.negocios-ciudad .post-content {
+  font-size: 14px;
+  line-height: 20px;
+  margin-bottom: 0;
+}
+.negocios-ciudad .post-content a {
+  color: #1A1A1A;
+  font-size: 14px;
+  line-height: 20px;
+  font-weight: 400;
+}
+.negocios-ciudad .post-content a:hover {
+  color: #F59E0B;
+  text-decoration: underline;
+}
+.negocios-ciudad .col2 {
+  width: 293px;
+  margin-bottom: 16px;
+}
+.negocios-ciudad .col2 iframe {
+  max-height: 200px;
+  margin-bottom: 24px;
+}
+.negocios-ciudad .col2 .btn-row {
+  display: flex;
+  justify-content: space-between;
+}
+.negocios-ciudad .col2 .btn-row a {
+  font-size: 13px;
+  line-height: normal;
+  padding: 15px 19px;
+  border: 1px solid #1A1A1A;
+  display: inline-block;
+  text-decoration: none;
+  border-radius: 4px;
+  max-width: 140px;
+  width: 100%;
+  text-align: center;
+}
+.negocios-ciudad .col2 .btn-row a.dark-btn {
+  background-color: #1A1A1A;
+  color: #fff;
+}
+.negocios-ciudad .col2 .btn-row a.dark-btn:hover {
+  color: #1A1A1A;
+  background-color: #fff;
+}
+.negocios-ciudad .col2 .btn-row a.light-btn {
+  color: #1A1A1A;
+  background-color: #fff;
+}
+.negocios-ciudad .col2 .btn-row a.light-btn:hover {
+  color: #fff;
+  background-color: #1A1A1A;
+}
+.negocios-ciudad .reviews-title h2 {
+  font-size: 13px;
+  line-height: 16px;
+  color: #F59E0B;
+  font-weight: 600;
+  margin: 20px 0 12px;
+  display: flex;
+  align-items: center;
+  position: relative;
+  padding-left: 18px;
+}
+.negocios-ciudad .reviews-title .chevron {
+  position: absolute;
+  left: 0;
+  top: -1px;
+  font-size: 18px;
+}
+.negocios-ciudad .reviews-title .text {
+  display: block;
+  border-bottom: 1px solid #F59E0B;
+}
+.negocios-ciudad .reviews-title h2 img {
+  margin-left: 6px;
+}
+.negocios-ciudad .review-details {
+  margin-top: 0;
+  flex-direction: column;
+  margin-bottom: 0;
+  row-gap: 8px;
+}
+.negocios-ciudad .review-details .review {
+  width: 100%;
+  padding: 16px 16px 20px;
+}
+.negocios-ciudad  .review-details .review h5{
+  margin: 0;
+}
+.negocios-ciudad  .review-details .review p {
+  margin: 0 0 8px 0;
+}
+.negocios-ciudad  .review-details .review .link {
+  line-height: normal;
+}
+.negocios-ciudad  .review-details .review .link a {  
+  color: #1A1A1A;
+}
+/* End CSS for detalle_negocio_ciudad Shortcode */
+/* End CSS for detalle_negocios_estado Shortcode */
+.negocio-estado {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 29px;
+}
+.estado-row {
+  border: 1px solid #1A1A1A;
+  background-color: #1A1A1A;
+  color: #fff;
+  padding: 12px;
+  border-radius: 4px;
+  width: calc(33.33% - 20px);
+  position: relative;
+  transition: all 0.15s linear;
+}
+.estado-row:hover {
+  background-color: #fff;
+  color: #1A1A1A;
+  transition: all 0.15s linear;
+}
+.estado-row:hover a img {
+  filter: invert(1);
+}
+.estado-row h5,
+.estado-row h6 {
+  margin: 0 !important;
+  font-weight: 400;
+}
+.estado-row h5 {
+  font-size: 18px;
+  line-height: 36px;
+  margin-bottom: 10px !important;
+}
+.estado-row h6 {
+  font-size: 13px;
+  line-height: 26px;
+}
+.estado-row a {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  left: 0;
+  top: 0;
+}
+.estado-row a img {
+  bottom: 20px;
+  position: absolute;
+  right: 16px;
+}
+/* End CSS for detalle_negocios_estado Shortcode */
+/* Start FAQ section CSS */
+.page-template-templates details[open] {
+}
+.page-template-templates summary {
+  font-size: 20px;
+  line-height: 48px;
+  position: relative;
+}
+summary::marker {    
+  color: transparent;
+}
+.page-template-templates summary::after,
+.page-template-templates summary::before {
+  content: " ";
+  width: 32px;
+  height: 6px;
+  background-color: #000;
+  display: block;
+  position: absolute;
+  top: 50%;
+  right: 0;
+  transition: all 0.15s cubic-bezier(.42, 0, .58, 1);
+  opacity: 1;
+  border-radius: 2px;
+}
+.page-template-templates summary::after {
+  transform: translate(-50%, 0);  
+}
+.page-template-templates summary::before {
+  transform: translate(-50%, 0) rotate(90deg);
+}
+/* End FAQ section CSS */
 @media (max-width: 991px) {
   .columna1 .top-section h3 {
     font-size: 38px;
