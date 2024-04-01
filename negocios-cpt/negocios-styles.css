@@ -79,6 +79,7 @@ a {
 .negocio-detalle .chevron {
   cursor: pointer;
   padding-left: 10px;
+  font-size: 24px;
 }
 
 .negocio-detalle .horarios-ocultos p {
@@ -181,6 +182,9 @@ button:hover {
   position: absolute;
   top: 35px;
   width: 100%;
+  min-width: 190px;
+  left: 0;
+  z-index: 1;
 }
 .info-contacto li {
   position: relative;
@@ -205,6 +209,7 @@ button:hover {
 }
 .info-contacto li .hidden-hours p {
   font-size: 14px;
+  margin-bottom: 6px;
 }
 .info-contacto li:nth-child(3) {
   font-size: 14px;
@@ -244,14 +249,22 @@ button:hover {
 .e-address-contacto li a {
   padding: 12px 23px;
   background-color: transparent;
-  border: 1px solid #000;
-  color: #000;
+  border: 1px solid #1A1A1A;
+  color: #1A1A1A;
   font-size: 14px;
   line-height: 120%;
   border-radius: 50px;
   display: flex;
   align-items: center;
   gap: 5px;
+  text-decoration: none;
+}
+.e-address-contacto li a:hover {
+  color: #fff;
+  background-color: #1A1A1A;
+}
+.e-address-contacto a:hover img {
+  filter: invert(100%);
 }
 .opiniones-row p {
   background-color: #f9f9f9;
@@ -291,8 +304,8 @@ button:hover {
   gap: 10px;
 }
 .abogados-cards .card .heading img {
-  width: 50px;
-  height: 50px;
+  width: 54px;
+  height: 54px;
   border-radius: 8px;
   object-fit: cover;
 }
@@ -300,6 +313,7 @@ button:hover {
   width: calc(100% - 60px);
   font-size: 20px;
   line-height: 120%;
+  margin: 0;
 }
 .abogados-cards p {
   font-size: 16px;
@@ -312,6 +326,7 @@ button:hover {
   display: flex;
   gap: 12px;
   align-items: center;
+  color: #F7BA44;
 }
 .abogados-cards .rating {
   display: flex;
@@ -334,6 +349,7 @@ button:hover {
   color: #fff;
   border-radius: 4px;
   transition: all 0.3s ease-in-out;
+  text-decoration: none;
 }
 .abogados-cards .btns a:hover {
   color: #000;
@@ -348,13 +364,21 @@ button:hover {
   color: #fff;
 }
 /* Start CSS for detalle_negocio_ciudad Shortcode */
+.page-template-default main,
 .page-template-templates main {
   width: 100%;
   max-width: 900px;
-  padding: 0 25px;
+  padding: 30px 25px 0;
   margin: 0 auto;
+  margin-top: 40px;
   background-color: #fff;
 }
+.page-template-default h1,
+.page-template-default h2,
+.page-template-default h3,
+.page-template-default h4,
+.page-template-default h5,
+.page-template-default h6,
 .page-template-templates h1,
 .page-template-templates h2,
 .page-template-templates h3,
@@ -363,31 +387,40 @@ button:hover {
 .page-template-templates h6 {
   font-weight: 400;
 }
+.page-template-default .wp-block-heading,
 .page-template-templates .wp-block-heading {
   margin-top: 36px;
 }
+.page-template-default main .custom-widget-container,
 .page-template-templates main .custom-widget-container {
   margin: 0;
   width: 100% !important;
   margin-bottom: 16px;
+  min-width: calc(100% + 80px) !important;
+  margin-left: -40px;
 }
+.page-template-default .custom-widget-container img,
 .page-template-templates .custom-widget-container img {
   width: 100%;
   max-height: 250px;
   object-fit: cover;
 }
+.page-template-default.singular .entry-header,
 .page-template-templates.singular .entry-header {
   padding-top: 0;
   padding-bottom: 24px;
   text-align: left;
 }
-body.template-full-width .entry-content > * {
+.page-template-default .entry-content > *,
+.page-template-templates .entry-content > * {
   width: 100% !important;
   max-width: 100% !important;
 }
+.page-template-default .post-inner,
 .page-template-templates .post-inner {
   padding-top: 0;
 }
+.page-template-default h1.entry-title,
 .page-template-templates h1.entry-title {
   font-size: 40px;
   line-height: 48px;
@@ -490,7 +523,7 @@ body.template-full-width .entry-content > * {
 .negocios-ciudad .col2 .btn-row a {
   font-size: 13px;
   line-height: normal;
-  padding: 15px 19px;
+  padding: 14px 19px;
   border: 1px solid #1A1A1A;
   display: inline-block;
   text-decoration: none;
@@ -615,37 +648,77 @@ body.template-full-width .entry-content > * {
 }
 /* End CSS for detalle_negocios_estado Shortcode */
 /* Start FAQ section CSS */
-.page-template-templates details[open] {
+.page-template-default details[open] summary::before,
+.page-template-templates details[open] summary::before {
+  display: none;
 }
+.page-template-default details,
+.page-template-templates details {
+  border-bottom: 1px solid #1A1A1A;
+  padding-bottom: 16px;
+  margin-bottom: 16px;
+}
+.page-template-default main .section-inner,
+.page-template-templates main .section-inner {
+  width: 100%;
+}
+.page-template-default .custom-widget-container:last-child,
+.page-template-templates .custom-widget-container:last-child {
+  margin-top: 36px;
+  margin-bottom: 36px;
+}
+.page-template-default details p:last-child,
+.page-template-templates details p:last-child {
+  margin-bottom: 0;
+}
+.page-template-default details .wp-block-heading,
+.page-template-templates details .wp-block-heading {
+  margin: 0 0 15px;
+}
+.page-template-default summary,
 .page-template-templates summary {
   font-size: 20px;
-  line-height: 48px;
+  line-height: 42px;
   position: relative;
+  width: calc(100% - 22px);
 }
-summary::marker {    
+.page-template-default summary::marker,
+.page-template-templates summary::marker {    
   color: transparent;
+  font-size: 0;
 }
+.page-template-default summary::after,
+.page-template-default summary::before,
 .page-template-templates summary::after,
 .page-template-templates summary::before {
-  content: " ";
-  width: 32px;
-  height: 6px;
-  background-color: #000;
+  content: "";
+  width: 14px;
+  height: 2px;
+  background-color:#1C1B1F;
   display: block;
   position: absolute;
-  top: 50%;
-  right: 0;
+  top: 48%;
+  right: -28px;
   transition: all 0.15s cubic-bezier(.42, 0, .58, 1);
   opacity: 1;
   border-radius: 2px;
 }
+.page-template-default summary::after,
 .page-template-templates summary::after {
   transform: translate(-50%, 0);  
 }
+.page-template-default summary::before,
 .page-template-templates summary::before {
   transform: translate(-50%, 0) rotate(90deg);
 }
 /* End FAQ section CSS */
+@media (max-width: 1024px) {
+  .page-template-default main .custom-widget-container,
+  .page-template-templates main .custom-widget-container {
+    min-width: 100% !important;
+    margin-left: auto;
+  }
+}
 @media (max-width: 991px) {
   .columna1 .top-section h3 {
     font-size: 38px;
@@ -674,6 +747,91 @@ summary::marker {
   }
   .review {
     width: calc(50% - 14px);
+  }
+  .page-template-default summary,
+  .page-template-templates summary {
+    line-height: 24px;
+  }
+  .negocios-ciudad {
+    flex-direction: column;
+    padding: 18px;
+  }
+  .negocios-ciudad .col1 {
+    width: 100%;
+    padding-right: 0;
+  }
+  .negocios-ciudad .col2 {
+    width: 100%;
+    margin-bottom: 0;
+    display: flex;
+    flex-direction: column-reverse;
+  }
+  .negocios-ciudad .col2 .btn-row {
+    margin-bottom: 16px;
+    margin-top: 6px;
+    justify-content: flex-start;
+    gap: 5px;
+  }
+  .negocios-ciudad .review-details {
+    margin-bottom: 10px;
+  }
+  .negocios-ciudad .col2 .btn-row a {
+    max-width: 112px;
+    padding: 12px 14px;
+  }
+  .page-template-default .wp-block-heading,
+  .page-template-templates .wp-block-heading {
+    margin-top: 22px;
+  }
+  .page-template-default main,
+  .page-template-templates main {
+    padding-top: 20px;
+  }
+  .page-template-default h1.entry-title,
+  .page-template-templates h1.entry-title {
+    font-size: 34px;
+    line-height: 42px;
+  }
+  .review h5 {
+    font-size: 16px;
+  }
+  .inner-row {
+    flex-direction: column;
+  }
+  .col1-left {
+    margin-bottom: 10px;
+  }
+  .negocios-ciudad .col1-right h3 {
+    font-size: 20px;
+  }
+  .negocios-ciudad .col1-right .address {
+    padding: 6px 0;
+  }
+  .negocio-estado {
+    gap: 16px;
+  }
+  .negocios-ciudad .col2 iframe {
+    margin-bottom: 0;
+    width: 100% !important;
+  }
+  .estado-row {
+    width: calc(51% - 15px);
+  }
+  .page-template-default .custom-widget-container img,
+  .page-template-templates .custom-widget-container img {
+    max-height: 180px;
+  }
+  .page-template-default h2.wp-block-heading,
+  .page-template-templates h2.wp-block-heading {
+    font-size: 32px;
+  }
+  .page-template-default h3.wp-block-heading,
+  .page-template-templates h3.wp-block-heading {
+    font-size: 30px;
+  }
+  .page-template-default h4.wp-block-heading,
+  .page-template-templates h4.wp-block-heading {
+    font-size: 28px;
   }
 }
 @media (max-width: 690px) {

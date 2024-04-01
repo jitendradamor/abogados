@@ -14,6 +14,8 @@ $reviews = get_post_meta($current_post_id, 'negocios_reviews', true);
 $terms = get_the_terms($current_post_id, 'categorias_servicios'); // Replace 'categorias_servicios' with the name of your custom taxonomy
 
 $dias = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'];
+
+$plugin_dir_url = plugin_dir_url(__FILE__); 
 ?>
 <!-- Retrieve logo URL -->
 <div class="is-layout-constrained">
@@ -47,22 +49,22 @@ $dias = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Su
                     <?php echo get_the_content($current_post_id); ?>
                     <h4>Contactar</h4>
                     <div class="address">
-                        <img src="<?php echo plugin_dir_url(__FILE__); ?>img/location_on.svg" alt="Phone Icon">
+                        <img src="<?php echo $plugin_dir_url; ?>img/location_on.svg" alt="Phone Icon">
                         <p><b>Ubicación :</b> <?php echo ($direccion) ? $direccion : ''; ?></p>
                     </div>
                     <ul class="info-contacto">
                          <!-- Ícono de teléfono con SVG -->
                         <li>
-                            <img src="<?php echo plugin_dir_url(__FILE__); ?>'img/phone-icon.svg" alt="Phone Icon" ><?php echo esc_html($telefono); ?>
+                            <img src="<?php echo $plugin_dir_url; ?>img/phone-icon.svg" alt="Phone Icon" ><?php echo esc_html($telefono); ?>
                         </li>
                         <!-- Ícono de sitio web con SVG -->
                         <li>
-                            <img src="<?php echo plugin_dir_url(__FILE__); ?>'img/link.svg" alt="Web Icon" >
+                            <img src="<?php echo $plugin_dir_url; ?>img/link.svg" alt="Web Icon" >
                             <a href="<?php echo esc_url($sitio_web); ?>"><?php echo esc_html($sitio_web); ?></a>
                         </li>
                         <!-- Ícono de calendario con SVG -->
-                        <li>
-                            <img src="<?php echo plugin_dir_url(__FILE__);?>'img/calendar-icon.svg" alt="Calendar Icon">
+                        <li class="schedule-toggle">
+                            <img src="<?php echo $plugin_dir_url; ?>img/calendar-icon.svg" alt="Calendar Icon">
                             <?php
                                 // Horarios de hoy
                                 $dia_actual = strtolower(date('l'));
@@ -81,17 +83,20 @@ $dias = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Su
                                 <?php foreach ($dias as $dia) {
                                     $horario_apertura = get_post_meta($current_post_id, 'negocios_horario_apertura_' . strtolower($dia), true);
                                     $horario_cierre = get_post_meta($current_post_id, 'negocios_horario_cierre_' . strtolower($dia), true);
-                                    $abierto_24_horas = get_post_meta($current_post_id, 'negocios_abierto_24_horas_' . strtolower($dia), true);
-                                    echo '<p>';
-                                        if ($abierto_24_horas) {
-                                            echo ucfirst($dia) . ': Open 24 hours';
-                                        } elseif ($horario_apertura && $horario_cierre) {
-                                            echo ucfirst($dia) . ': ' . esc_html($horario_apertura) . ' - ' . esc_html($horario_cierre);
-                                        } else {
-                                            echo ucfirst($dia) . ': Closed';
-                                        }
-                                    echo '</p>';
-                                } ?>
+                                    $abierto_24_horas = get_post_meta($current_post_id, 'negocios_abierto_24_horas_' . strtolower($dia), true); ?>
+
+                                    <p>
+                                        <?php
+                                            if ($abierto_24_horas) {
+                                                echo ucfirst($dia) . ': Open 24 hours';
+                                            } elseif ($horario_apertura && $horario_cierre) {
+                                                echo ucfirst($dia) . ': ' . esc_html($horario_apertura) . ' - ' . esc_html($horario_cierre);
+                                            } else {
+                                                echo ucfirst($dia) . ': Closed';
+                                            } 
+                                        ?>
+                                    </p>
+                                <?php } ?>
                             </div>
                         </li> <!-- Cierre de .hidden-hours -->
                     </ul> <!-- Cierre de .info-contacto -->
@@ -106,13 +111,13 @@ $dias = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Su
             </div> <!-- Cierre de .columna2 -->
             <div class="columna3">
                 <ul class="e-address-contacto">
-                    <?php
-                    // Ícono de teléfono con SVG
-                    echo '<li><a href= tel:' . esc_html($telefono) . '><img src="' . plugin_dir_url(__FILE__) . 'img/phone-icon.svg" alt="Phone Icon" > Llamar</a></li>';
-                    // Ícono de sitio web con SVG
-                    echo ' <li><a href="mailto:yahoo@gmail.com"><img src="' . plugin_dir_url(__FILE__) . 'img/calendar-icon.svg" alt="Calendar Icon" > Email</a></li>';
-                    // Ícono de calendario con SVG
-                    echo '<li><a href="' . esc_url($sitio_web) . '"><img src="' . plugin_dir_url(__FILE__) . 'img/web-icon.svg" alt="Web Icon" >Sitio Web</a></li>'; ?>
+                    
+                    <!-- Ícono de teléfono con SVG -->
+                    <li><a href= tel:<?php echo esc_html($telefono); ?>><img src="<?php echo $plugin_dir_url; ?>img/phone-icon.svg" alt="Phone Icon" > Llamar</a></li>
+                    <!-- Ícono de sitio web con SVG -->
+                    <li><a href="mailto:yahoo@gmail.com"><img src="<?php echo $plugin_dir_url; ?>img/calendar-icon.svg" alt="Calendar Icon" > Email</a></li>
+                    <!-- Ícono de calendario con SVG -->
+                    <li><a target="_blank" href="<?php echo esc_url($sitio_web); ?>"><img src="<?php echo $plugin_dir_url; ?>img/web-icon.svg" alt="Web Icon" >Sitio Web</a></li>
                 </ul>
                 <?php
                 if (!empty($reviews)) { ?>
@@ -188,7 +193,7 @@ $dias = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Su
                         <div class="heading"><?php
                             // Display logo if URL is available
                             if (!empty($logo_url)) { ?>
-                                <img src="<?php echo esc_url($logo_url); ?>" alt="Logo" style="max-width: 200px; height: auto;"><?php
+                                <img src="<?php echo esc_url($logo_url); ?>" alt="Logo" width="54" height="54"><?php
                             } ?>
                             <h5><?php echo $negocios_query->post_title; ?></h5>
                         </div>
