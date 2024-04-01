@@ -61,7 +61,7 @@ $dias = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Su
                             <a href="<?php echo esc_url($sitio_web); ?>"><?php echo esc_html($sitio_web); ?></a>
                         </li>
                         <!-- Ícono de calendario con SVG -->
-                        <li>
+                        <li class="schedule-toggle">
                             <img src="<?php echo plugin_dir_url(__FILE__);?>img/calendar-icon.svg" alt="Calendar Icon">
                             <?php
                                 // Horarios de hoy

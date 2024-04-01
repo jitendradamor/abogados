@@ -79,6 +79,7 @@ a {
 .negocio-detalle .chevron {
   cursor: pointer;
   padding-left: 10px;
+  font-size: 24px;
 }
 
 .negocio-detalle .horarios-ocultos p {
@@ -183,6 +184,7 @@ button:hover {
   width: 100%;
   min-width: 190px;
   left: 0;
+  z-index: 1;
 }
 .info-contacto li {
   position: relative;
@@ -324,6 +326,7 @@ button:hover {
   display: flex;
   gap: 12px;
   align-items: center;
+  color: #F7BA44;
 }
 .abogados-cards .rating {
   display: flex;
@@ -367,6 +370,7 @@ button:hover {
   max-width: 900px;
   padding: 30px 25px 0;
   margin: 0 auto;
+  margin-top: 40px;
   background-color: #fff;
 }
 .page-template-default h1,
@@ -684,10 +688,10 @@ button:hover {
   font-size: 0;
 }
 .page-template-default summary::after,
-.page-template-default summary::before 
+.page-template-default summary::before,
 .page-template-templates summary::after,
 .page-template-templates summary::before {
-  content: " ";
+  content: "";
   width: 14px;
   height: 2px;
   background-color:#1C1B1F;

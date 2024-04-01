@@ -13,24 +13,34 @@ add_action('wp_enqueue_scripts', 'negocios_enqueue_styles');
 function negocios_add_footer_scripts()
 {
     echo '<script type="text/javascript">
-    document.addEventListener("DOMContentLoaded", function() {
-        document.querySelectorAll(".chevron").forEach(function(element) {
-            element.addEventListener("click", function() {
-                var nextElement = this.nextElementSibling;
-                // Loop through siblings until we find the element with the class "hidden-hours"
-                while (nextElement && !nextElement.classList.contains("hidden-hours")) {
-                    nextElement = nextElement.nextElementSibling;
+    // jQuery script to toggle review details visibility
+    jQuery(document).ready(function($){
+        // Event listener for click on elements with class "schedule-toggle"
+        $(".schedule-toggle").click(function() {
+            var nextElement = $(this).find(".hidden-hours");
+            if (nextElement.length) {
+                nextElement.toggle();
+                $(this).find(".chevron").toggleClass("active");
+                if ($(this).find(".chevron").hasClass("active")) {
+                    $(this).find(".chevron").html("&#8722;"); // Chevron up
+                } else {
+                    $(this).find(".chevron").html("&#65122;"); // Chevron down
                 }
-                if (nextElement) {
-                    nextElement.style.display = nextElement.style.display === "none" ? "block" : "none";
-                    this.classList.toggle("active");
-                    this.innerHTML = this.classList.contains("active") ? "&#8722;" : "&#65122;"; // Chevron up or down
+            }
+        });
+    
+        // Close hidden hours when clicking outside of schedule-toggle or hidden-hours
+        $(document).click(function(event) {
+            $(".schedule-toggle").each(function() {
+                var isClickInsideScheduleToggle = $(this).is(event.target) || $(this).has(event.target).length > 0;
+                var isClickInsideHiddenHours = $(this).find(".hidden-hours").is(event.target) || $(this).find(".hidden-hours").has(event.target).length > 0;
+                if (!isClickInsideScheduleToggle && !isClickInsideHiddenHours) {
+                    $(this).find(".hidden-hours").hide();
+                    $(this).find(".chevron").removeClass("active").html("&#65122;"); // Chevron down
                 }
             });
         });
-    });
-    // jQuery script to toggle review details visibility
-    jQuery(document).ready(function($){
+
         $(".reviews-title").click(function(){
             $(this).toggleClass("active");
             if ($(this).hasClass("active")) {
@@ -133,7 +143,7 @@ function mostrar_detalle_negocio_ciudad($atts)
                             <li><img width="20" height="20" src="<?php echo plugin_dir_url(__FILE__); ?>img/link.svg" alt="Web Icon" ><a target="_blank" href="<?php echo esc_url($sitio_web);?>"><?php echo esc_html($sitio_web); ?></a></li>
 
                             <!-- Ícono de calendario con SVG -->
-                            <li><img width="20" height="20" src="<?php echo plugin_dir_url(__FILE__); ?>img/calendar-icon.svg" alt="Calendar Icon">
+                            <li class="schedule-toggle"><img width="20" height="20" src="<?php echo plugin_dir_url(__FILE__); ?>img/calendar-icon.svg" alt="Calendar Icon">
 
                                 <!-- Horarios de hoy -->
                                 <?php
