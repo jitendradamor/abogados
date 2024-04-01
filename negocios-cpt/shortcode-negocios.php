@@ -95,7 +95,7 @@ function mostrar_detalle_negocio_ciudad($atts)
     }
 
     $negocios_query = new WP_Query($args);
-
+    $plugin_dir_url = plugin_dir_url(__FILE__);
     if ($negocios_query->have_posts()) {
         $counter = 0; // Counter to track loop iterations
         while ($negocios_query->have_posts()) {
@@ -128,7 +128,7 @@ function mostrar_detalle_negocio_ciudad($atts)
                         <div class="col1-right">
                             <h3><?php echo get_the_title($negocio_id); ?></h3>  
                             <div class="address">
-                                <img width="13" height="16" src="<?php echo plugin_dir_url(__FILE__); ?>img/location_on.svg" alt="Phone Icon">
+                                <img width="13" height="16" src="<?php echo $plugin_dir_url; ?>img/location_on.svg" alt="Phone Icon">
                                 <p><?php echo get_post_meta($negocio_id, 'negocios_direccion', true); ?></p>
                             </div>
                             <p class="rating"><span class="icon">&#9733;</span><?php echo esc_html($estrellas); ?> rating <span>y <?php echo esc_html($reseñas); ?> comentarios</span></p>
@@ -137,13 +137,13 @@ function mostrar_detalle_negocio_ciudad($atts)
                     <div class="col1-bottom">
                         <ul class="info-contacto">                            
                             <!-- Ícono de teléfono con SVG -->
-                            <li><img width="20" height="20" src="<?php echo plugin_dir_url(__FILE__); ?>img/phone-icon.svg" alt="Phone Icon" ><a href="tel:<?php echo esc_html($telefono); ?>"><?php echo esc_html($telefono); ?></a></li>
+                            <li><img width="20" height="20" src="<?php echo $plugin_dir_url; ?>img/phone-icon.svg" alt="Phone Icon" ><a href="tel:<?php echo esc_html($telefono); ?>"><?php echo esc_html($telefono); ?></a></li>
 
                             <!-- Ícono de sitio web con SVG -->
-                            <li><img width="20" height="20" src="<?php echo plugin_dir_url(__FILE__); ?>img/link.svg" alt="Web Icon" ><a target="_blank" href="<?php echo esc_url($sitio_web);?>"><?php echo esc_html($sitio_web); ?></a></li>
+                            <li><img width="20" height="20" src="<?php echo $plugin_dir_url; ?>img/link.svg" alt="Web Icon" ><a target="_blank" href="<?php echo esc_url($sitio_web);?>"><?php echo esc_html($sitio_web); ?></a></li>
 
                             <!-- Ícono de calendario con SVG -->
-                            <li class="schedule-toggle"><img width="20" height="20" src="<?php echo plugin_dir_url(__FILE__); ?>img/calendar-icon.svg" alt="Calendar Icon">
+                            <li class="schedule-toggle"><img width="20" height="20" src="<?php echo $plugin_dir_url; ?>img/calendar-icon.svg" alt="Calendar Icon">
 
                                 <!-- Horarios de hoy -->
                                 <?php
@@ -189,7 +189,7 @@ function mostrar_detalle_negocio_ciudad($atts)
                         if (!empty($reviews)) { ?>
                             <div class="reviews-row">
                                 <div class="reviews-title">
-                                    <h2><span class="chevron">+</span><span class="text"><?php echo __('Testimonios Reales desde Google Maps', 'mi-plugin-negocios'); ?></span><img width="16" height="13" src="<?php echo plugin_dir_url(__FILE__); ?>img/campaign.svg" alt="Campaign Icon"></h2>
+                                    <h2><span class="chevron">+</span><span class="text"><?php echo __('Testimonios Reales desde Google Maps', 'mi-plugin-negocios'); ?></span><img width="16" height="13" src="<?php echo $plugin_dir_url; ?>img/campaign.svg" alt="Campaign Icon"></h2>
                                 </div>
 
                                 <div class="review-details" style="display:none;">
@@ -395,7 +395,7 @@ function mostrar_detalles_negocio_estado($atts)
     }
 
     $negocios_querys = new WP_Query($args);
-    
+    $plugin_dir_url = plugin_dir_url(__FILE__);
     if ($negocios_querys->have_posts()) { ?>
         <div class="negocio-estado">
             <?php while ($negocios_querys->have_posts()) {
@@ -413,7 +413,7 @@ function mostrar_detalles_negocio_estado($atts)
                         <?php echo esc_html($city); ?>, <?php echo esc_html($state); ?>
                     </h5>
                     <h6 class="state"><?php echo esc_html($full_state_name); ?></h6>                    
-                    <a href="<?php echo esc_url(get_permalink()); ?>"><img src="<?php echo plugin_dir_url(__FILE__); ?>img/arrow_right_alt.svg" alt="arrow_right_alt" width="15" height="11"></a>
+                    <a href="<?php echo esc_url(get_permalink()); ?>"><img src="<?php echo $plugin_dir_url; ?>img/arrow_right_alt.svg" alt="arrow_right_alt" width="15" height="11"></a>
                 </div>
             <?php } ?>
         </div>

@@ -14,6 +14,8 @@ $reviews = get_post_meta($current_post_id, 'negocios_reviews', true);
 $terms = get_the_terms($current_post_id, 'categorias_servicios'); // Replace 'categorias_servicios' with the name of your custom taxonomy
 
 $dias = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'];
+
+$plugin_dir_url = plugin_dir_url(__FILE__); 
 ?>
 <!-- Retrieve logo URL -->
 <div class="is-layout-constrained">
@@ -47,22 +49,22 @@ $dias = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Su
                     <?php echo get_the_content($current_post_id); ?>
                     <h4>Contactar</h4>
                     <div class="address">
-                        <img src="<?php echo plugin_dir_url(__FILE__); ?>img/location_on.svg" alt="Phone Icon">
+                        <img src="<?php echo $plugin_dir_url; ?>img/location_on.svg" alt="Phone Icon">
                         <p><b>Ubicación :</b> <?php echo ($direccion) ? $direccion : ''; ?></p>
                     </div>
                     <ul class="info-contacto">
                          <!-- Ícono de teléfono con SVG -->
                         <li>
-                            <img src="<?php echo plugin_dir_url(__FILE__); ?>img/phone-icon.svg" alt="Phone Icon" ><?php echo esc_html($telefono); ?>
+                            <img src="<?php echo $plugin_dir_url; ?>img/phone-icon.svg" alt="Phone Icon" ><?php echo esc_html($telefono); ?>
                         </li>
                         <!-- Ícono de sitio web con SVG -->
                         <li>
-                            <img src="<?php echo plugin_dir_url(__FILE__); ?>img/link.svg" alt="Web Icon" >
+                            <img src="<?php echo $plugin_dir_url; ?>img/link.svg" alt="Web Icon" >
                             <a href="<?php echo esc_url($sitio_web); ?>"><?php echo esc_html($sitio_web); ?></a>
                         </li>
                         <!-- Ícono de calendario con SVG -->
                         <li class="schedule-toggle">
-                            <img src="<?php echo plugin_dir_url(__FILE__);?>img/calendar-icon.svg" alt="Calendar Icon">
+                            <img src="<?php echo $plugin_dir_url; ?>img/calendar-icon.svg" alt="Calendar Icon">
                             <?php
                                 // Horarios de hoy
                                 $dia_actual = strtolower(date('l'));
@@ -111,11 +113,11 @@ $dias = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Su
                 <ul class="e-address-contacto">
                     
                     <!-- Ícono de teléfono con SVG -->
-                    <li><a href= tel:<?php echo esc_html($telefono); ?>><img src="<?php echo plugin_dir_url(__FILE__); ?>img/phone-icon.svg" alt="Phone Icon" > Llamar</a></li>
+                    <li><a href= tel:<?php echo esc_html($telefono); ?>><img src="<?php echo $plugin_dir_url; ?>img/phone-icon.svg" alt="Phone Icon" > Llamar</a></li>
                     <!-- Ícono de sitio web con SVG -->
-                    <li><a href="mailto:yahoo@gmail.com"><img src="<?php echo plugin_dir_url(__FILE__); ?>img/calendar-icon.svg" alt="Calendar Icon" > Email</a></li>
+                    <li><a href="mailto:yahoo@gmail.com"><img src="<?php echo $plugin_dir_url; ?>img/calendar-icon.svg" alt="Calendar Icon" > Email</a></li>
                     <!-- Ícono de calendario con SVG -->
-                    <li><a target="_blank" href="<?php echo esc_url($sitio_web); ?>"><img src="<?php echo plugin_dir_url(__FILE__); ?>img/web-icon.svg" alt="Web Icon" >Sitio Web</a></li>
+                    <li><a target="_blank" href="<?php echo esc_url($sitio_web); ?>"><img src="<?php echo $plugin_dir_url; ?>img/web-icon.svg" alt="Web Icon" >Sitio Web</a></li>
                 </ul>
                 <?php
                 if (!empty($reviews)) { ?>
