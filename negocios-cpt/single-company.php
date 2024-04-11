@@ -47,59 +47,61 @@ $plugin_dir_url = plugin_dir_url(__FILE__);
                 </div>
                 <div class="contacto">
                     <?php echo get_the_content($current_post_id); ?>
-                    <h4>Contactar</h4>
-                    <div class="address">
-                        <img src="<?php echo $plugin_dir_url; ?>img/location_on.svg" alt="Phone Icon">
-                        <p><b>Ubicación :</b> <?php echo ($direccion) ? $direccion : ''; ?></p>
-                    </div>
-                    <ul class="info-contacto">
-                         <!-- Ícono de teléfono con SVG -->
-                        <li>
-                            <img src="<?php echo $plugin_dir_url; ?>img/phone-icon.svg" alt="Phone Icon" ><?php echo esc_html($telefono); ?>
-                        </li>
-                        <!-- Ícono de sitio web con SVG -->
-                        <li>
-                            <img src="<?php echo $plugin_dir_url; ?>img/link.svg" alt="Web Icon" >
-                            <a href="<?php echo esc_url($sitio_web); ?>"><?php echo esc_html($sitio_web); ?></a>
-                        </li>
-                        <!-- Ícono de calendario con SVG -->
-                        <li class="schedule-toggle">
-                            <img src="<?php echo $plugin_dir_url; ?>img/calendar-icon.svg" alt="Calendar Icon">
-                            <?php
-                                // Horarios de hoy
-                                $dia_actual = strtolower(date('l'));
-                                $horario_apertura_hoy = get_post_meta($current_post_id, 'negocios_horario_apertura_' . $dia_actual, true);
-                                $horario_cierre_hoy = get_post_meta($current_post_id, 'negocios_horario_cierre_' . $dia_actual, true);
-                                $abierto_24_horas_hoy = get_post_meta($current_post_id, 'negocios_abierto_24_horas_' . $dia_actual, true);
-                                if ($abierto_24_horas_hoy) {
-                                    echo 'Open 24 hours';
-                                } elseif ($horario_apertura_hoy && $horario_cierre_hoy) {
-                                    echo ucfirst($dia_actual) . ': ' . esc_html($horario_apertura_hoy) . ' - ' . esc_html($horario_cierre_hoy);
-                                } else {
-                                    echo 'Closed';
-                                } ?>
-                                <span class="chevron">&#65122;</span>
-                                <div class="hidden-hours" style="display:none;">
-                                <?php foreach ($dias as $dia) {
-                                    $horario_apertura = get_post_meta($current_post_id, 'negocios_horario_apertura_' . strtolower($dia), true);
-                                    $horario_cierre = get_post_meta($current_post_id, 'negocios_horario_cierre_' . strtolower($dia), true);
-                                    $abierto_24_horas = get_post_meta($current_post_id, 'negocios_abierto_24_horas_' . strtolower($dia), true); ?>
+                    <div id="contactar">
+                        <h4>Contactar</h4>
+                        <div class="address">
+                            <img src="<?php echo $plugin_dir_url; ?>img/location_on.svg" alt="Phone Icon">
+                            <p><b>Ubicación :</b> <?php echo ($direccion) ? $direccion : ''; ?></p>
+                        </div>
+                        <ul class="info-contacto">
+                            <!-- Ícono de teléfono con SVG -->
+                            <li>
+                                <img src="<?php echo $plugin_dir_url; ?>img/phone-icon.svg" alt="Phone Icon" ><?php echo esc_html($telefono); ?>
+                            </li>
+                            <!-- Ícono de sitio web con SVG -->
+                            <li>
+                                <img src="<?php echo $plugin_dir_url; ?>img/link.svg" alt="Web Icon" >
+                                <a href="<?php echo esc_url($sitio_web); ?>"><?php echo esc_html($sitio_web); ?></a>
+                            </li>
+                            <!-- Ícono de calendario con SVG -->
+                            <li class="schedule-toggle">
+                                <img src="<?php echo $plugin_dir_url; ?>img/calendar-icon.svg" alt="Calendar Icon">
+                                <?php
+                                    // Horarios de hoy
+                                    $dia_actual = strtolower(date('l'));
+                                    $horario_apertura_hoy = get_post_meta($current_post_id, 'negocios_horario_apertura_' . $dia_actual, true);
+                                    $horario_cierre_hoy = get_post_meta($current_post_id, 'negocios_horario_cierre_' . $dia_actual, true);
+                                    $abierto_24_horas_hoy = get_post_meta($current_post_id, 'negocios_abierto_24_horas_' . $dia_actual, true);
+                                    if ($abierto_24_horas_hoy) {
+                                        echo 'Open 24 hours';
+                                    } elseif ($horario_apertura_hoy && $horario_cierre_hoy) {
+                                        echo ucfirst($dia_actual) . ': ' . esc_html($horario_apertura_hoy) . ' - ' . esc_html($horario_cierre_hoy);
+                                    } else {
+                                        echo 'Closed';
+                                    } ?>
+                                    <span class="chevron">&#65122;</span>
+                                    <div class="hidden-hours" style="display:none;">
+                                    <?php foreach ($dias as $dia) {
+                                        $horario_apertura = get_post_meta($current_post_id, 'negocios_horario_apertura_' . strtolower($dia), true);
+                                        $horario_cierre = get_post_meta($current_post_id, 'negocios_horario_cierre_' . strtolower($dia), true);
+                                        $abierto_24_horas = get_post_meta($current_post_id, 'negocios_abierto_24_horas_' . strtolower($dia), true); ?>
 
-                                    <p>
-                                        <?php
-                                            if ($abierto_24_horas) {
-                                                echo ucfirst($dia) . ': Open 24 hours';
-                                            } elseif ($horario_apertura && $horario_cierre) {
-                                                echo ucfirst($dia) . ': ' . esc_html($horario_apertura) . ' - ' . esc_html($horario_cierre);
-                                            } else {
-                                                echo ucfirst($dia) . ': Closed';
-                                            } 
-                                        ?>
-                                    </p>
-                                <?php } ?>
-                            </div>
-                        </li> <!-- Cierre de .hidden-hours -->
-                    </ul> <!-- Cierre de .info-contacto -->
+                                        <p>
+                                            <?php
+                                                if ($abierto_24_horas) {
+                                                    echo ucfirst($dia) . ': Open 24 hours';
+                                                } elseif ($horario_apertura && $horario_cierre) {
+                                                    echo ucfirst($dia) . ': ' . esc_html($horario_apertura) . ' - ' . esc_html($horario_cierre);
+                                                } else {
+                                                    echo ucfirst($dia) . ': Closed';
+                                                } 
+                                            ?>
+                                        </p>
+                                    <?php } ?>
+                                </div>
+                            </li> <!-- Cierre de .hidden-hours -->
+                        </ul> <!-- Cierre de .info-contacto -->
+                    </div>
                 </div> <!-- ierre de .info-contacto -->
                 <?php
                 if (!empty($atts['boton_servicios_url'])) {
@@ -121,7 +123,7 @@ $plugin_dir_url = plugin_dir_url(__FILE__);
                 </ul>
                 <?php
                 if (!empty($reviews)) { ?>
-                    <div class="reviews-row">
+                    <div class="reviews-row" id="opiniones">
                         <div class="reviews-title">
                             <h2><?php echo __('Opiniones Reales', 'mi-plugin-negocios'); ?>*</h2>
                         </div>
@@ -195,7 +197,7 @@ $plugin_dir_url = plugin_dir_url(__FILE__);
                             if (!empty($logo_url)) { ?>
                                 <img src="<?php echo esc_url($logo_url); ?>" alt="Logo" width="54" height="54"><?php
                             } ?>
-                            <h5><?php echo $negocios_query->post_title; ?></h5>
+                            <h5><a href="<?php echo $negocio_url; ?>"><?php echo $negocios_query->post_title; ?></a></h5>
                         </div>
                         <p><?php echo !empty($negocios_direccion) ? $negocios_direccion : ''; ?></p>
                         <div class="rating">
@@ -206,7 +208,7 @@ $plugin_dir_url = plugin_dir_url(__FILE__);
                             } ?>
                         </div>
                         <div class="btns">
-                            <a href="<?php echo !empty($telefono) ? 'tel:' . $telefono : '#'; ?>">Contactar</a>
+                            <a href="<?php echo $negocio_url; ?>#contactar">Contactar</a>
                             <a href="<?php echo $negocio_url; ?>">Ver Servicios</a>
                         </div>
                     </div>

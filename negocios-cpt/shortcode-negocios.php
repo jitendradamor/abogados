@@ -63,10 +63,12 @@ function mostrar_detalle_negocio_ciudad($atts)
             'ciudad' => '',
             'cantidad_negocios' => 10, // Número predeterminado de negocios a mostrar
             'boton_servicios_url' => '',
+            'category' => ''
         ), $atts, 'detalle_negocio');
 
     $ciudad = $atts['ciudad'];
     $cantidad_negocios = $atts['cantidad_negocios'];
+    $category = $atts['category'];
 
     ob_start();
 
@@ -126,7 +128,7 @@ function mostrar_detalle_negocio_ciudad($atts)
                             } ?>
                         </div>
                         <div class="col1-right">
-                            <h3><?php echo get_the_title($negocio_id); ?></h3>  
+                            <h3><a href="<?php echo $permalink; ?>"><?php echo get_the_title($negocio_id); ?></a></h3>
                             <div class="address">
                                 <img width="13" height="16" src="<?php echo $plugin_dir_url; ?>img/location_on.svg" alt="Phone Icon">
                                 <p><?php echo get_post_meta($negocio_id, 'negocios_direccion', true); ?></p>
@@ -197,12 +199,9 @@ function mostrar_detalle_negocio_ciudad($atts)
                                         <div class="review">
                                             <h5><?php echo esc_html($review['text']); ?></h5>
                                             <p><?php echo esc_html($review['description']); ?></p>
-                                            <?php // Check if URL is provided and not empty
-                                            if (!empty($review['url'])) { ?>
-                                                <div class="link">
-                                                    <a target="_blank" href="<?php echo esc_url($review['url']);?>"><?php echo __('Leer mas en Google', 'mi-plugin-negocios');?></a>
-                                                </div>
-                                            <?php } ?>
+                                            <div class="link">
+                                                <a target="_blank" href="<?php echo $permalink; ?>#opiniones"><?php echo __('Leer mas en Google', 'mi-plugin-negocios');?></a>
+                                            </div>
                                         </div>
                                     <?php } ?>
                                 </div>
@@ -213,7 +212,7 @@ function mostrar_detalle_negocio_ciudad($atts)
                     <?php echo $mapa; // Asegúrate de que este contenido sea seguro antes de imprimirlo directamente ?>
                     <div class="btn-row">
                         <a class="light-btn" href="<?php echo $permalink; ?>">Ver Servicios</a>
-                        <a class="dark-btn" href= tel:<?php echo esc_html($telefono); ?>>Contactar</a>
+                        <a class="dark-btn" href="<?php echo $permalink; ?>#contactar">Contactar</a>
                     </div>
                 </div>
             </div><!-- End .negocios-ciudad -->
