@@ -60,13 +60,13 @@ function mostrar_detalle_negocio_ciudad($atts)
 {
     $atts = shortcode_atts(
         array(
-            'ciudad' => '',
+            'city' => '',
             'cantidad_negocios' => 10, // Número predeterminado de negocios a mostrar
             'boton_servicios_url' => '',
             'category' => ''
         ), $atts, 'detalle_negocio');
 
-    $ciudad = $atts['ciudad'];
+    $ciudad = $atts['city'];
     $cantidad_negocios = $atts['cantidad_negocios'];
     $category = $atts['category'];
 
@@ -235,14 +235,14 @@ function mostrar_detalle_negocio_ciudad($atts)
     return ob_get_clean();
 }
 
-add_shortcode('detalle_negocio_ciudad', 'mostrar_detalle_negocio_ciudad');
+add_shortcode('company_lists_using_city', 'mostrar_detalle_negocio_ciudad');
 
 // Define custom shortcode function
 
 function mostrar_detalles_negocio_estado($atts)
 {
     $atts = shortcode_atts(array(
-        'estado' => '',
+        'state' => '',
         'cantidad_negocios' => 10,
         'boton_servicios_url' => '',
         'category' => '',
@@ -363,7 +363,7 @@ function mostrar_detalles_negocio_estado($atts)
     );
 
     // Get database value from shortcode attribute value
-    $state_code = isset( $state_map[ strtoupper( $atts['estado'] ) ] ) ? $state_map[ strtoupper( $atts['estado'] ) ] : '';
+    $state_code = isset( $state_map[ strtoupper( $atts['state'] ) ] ) ? $state_map[ strtoupper( $atts['state'] ) ] : '';
     $cantidad_negocios = $atts['cantidad_negocios'];
     $category = $atts['category'];
 
@@ -425,7 +425,7 @@ function mostrar_detalles_negocio_estado($atts)
     return ob_get_clean();
 }
 
-add_shortcode('detalle_negocios_estado', 'mostrar_detalles_negocio_estado');
+add_shortcode('company_lists_using_state', 'mostrar_detalles_negocio_estado');
 
 function custom_abogados_widget_shortcode()
 {
@@ -434,4 +434,4 @@ function custom_abogados_widget_shortcode()
 	return ob_get_clean();
 }
 // Register shortcode
-add_shortcode('custom_abogados_widget', 'custom_abogados_widget_shortcode');
+add_shortcode('display_advertising_block', 'custom_abogados_widget_shortcode');
