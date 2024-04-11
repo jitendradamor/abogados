@@ -315,6 +315,12 @@ button:hover {
   line-height: 120%;
   margin: 0;
 }
+.abogados-cards .card .heading h5 a,
+.negocios-ciudad .col1-right h3 a {
+  color: #000;
+  text-decoration: none;
+  font-weight: 400;
+}
 .abogados-cards p {
   font-size: 16px;
   display: flex;
