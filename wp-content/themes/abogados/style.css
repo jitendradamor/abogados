@@ -1,0 +1,181 @@
+/*!
+Theme Name: abogados
+Theme URI: http://abogados.me/
+Author: abogados.me
+Author URI: http://abogados.me/
+Description: Description
+Version: 1.0.2
+Tested up to: 5.4
+Requires PHP: 5.6
+License: GNU General Public License v2 or later
+License URI: LICENSE
+Text Domain: abogados
+Tags: custom-background, custom-logo, custom-menu, featured-images, threaded-comments, translation-ready
+
+This theme, like WordPress, is licensed under the GPL.
+Use it to make something cool, have fun, and share what you've learned.
+
+abogados is based on abogados https://abogados.me/, (C) 2012-2020 Automattic, Inc.
+abogados is distributed under the terms of the GNU GPL v2 or later.
+
+Normalizing styles have been helped along thanks to the fine work of
+Nicolas Gallagher and Jonathan Neal https://necolas.github.io/normalize.css/
+*/
+
+
+/* font family */
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Source+Serif+4:ital,opsz,wght@0,8..60,200..900;1,8..60,200..900&display=swap');
+
+h1,h2,h3,h4,h5,h6{
+	font-family: "Source Serif 4", system-ui;
+}
+body,p{
+	font-family: "Inter", sans-serif;
+}
+.page-template-default main, .page-template-templates main .container {
+    margin: 0 auto;
+    max-width: 1200px;
+    padding: 0px 15px;
+}
+.container {
+    margin: 0 auto;
+    max-width: 1200px;
+    padding: 0px 15px;
+}
+
+h1{
+	font-size: 48px;
+	line-height: 48px;
+	align-items: center;
+	font-weight: 400;
+	color: #fff;
+}
+h2{
+	font-size: 40px;
+	line-height: 48px;
+	align-items: center;
+	font-weight: 400;
+	color : #000000;
+}
+h3{
+	font-size: 20px;
+	line-height: 28px;
+	align-items: center;
+	font-weight: 400;
+	color : #000000;
+}
+
+header#masthead {
+    background: #171717;
+}
+header#masthead {
+    background: #171717;
+    display: flex;
+}
+/* header#masthead {
+    background: #171717;
+    display: flex;
+    padding: 10px 30px;
+	align-items: center;
+} */
+header#masthead  .site-branding {
+    width: 25%;
+}
+nav#site-navigation {
+    width: 75%;
+}
+
+nav#site-navigation a {
+    font-size: 14px;
+    line-height: 24px;
+    font-weight: 400;
+    text-align: center;
+	color: #fff;
+	padding-right: 24px;
+}
+ul#primary-menu {
+    display: flex;
+    justify-content: end;
+}
+footer#colophon {
+    background: #000000;
+	padding: 30px 30px;
+}
+
+footer#colophon  ul#menu-footer-menu {
+    display: flex;
+}
+footer#colophon  ul#menu-footer-menu li a {
+    color: #9C9C9C;
+}
+footer#colophon ul#menu-footer-menu li a {
+    color: #9C9C9C;
+    padding: 0px 10px;
+}
+footer#colophon  p{
+	padding-top: 20px;
+	font-size: 12px;
+	line-height: 20px;
+	font-weight: 400;
+	color: #9C9C9C;
+}
+
+footer .inner-sec {
+    display: flex;
+	gap: 10%;
+	align-items: end;
+}
+footer .left {
+    width: 60%;
+	
+}
+footer .right {
+    width: 30%;
+	text-align: right;
+}
+footer#colophon ul#menu-footer-menu li a:after {
+    content: "|";
+    padding: 6px;
+}
+.inner-sec .left img {
+    padding-bottom: 20px;
+}
+
+
+/*post listing css*/
+
+
+.post-listing {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* Three columns */
+}
+
+.post-item {
+    border: 1px solid #ddd;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.post-thumb .post-image {
+    width: 100%; /* Adjust image to fill column width */
+    margin-bottom: 15px;
+}
+
+.post-meta {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    margin-bottom: 10px;
+}
+
+.post-title {
+    margin-bottom: 15px;
+}
+
+.read-more {
+    text-decoration: none;
+    color: #0073aa;
+    margin-top: auto; /* Push "Read More" link to bottom */
+}
+

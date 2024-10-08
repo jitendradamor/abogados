@@ -1,0 +1,851 @@
+* {
+  padding: 0px;
+  margin: 0px;
+  box-sizing: border-box;
+}
+ul li {
+  list-style: none;
+}
+a {
+  text-decoration: none;
+}
+.single-negocios .ab-wrapper {
+  width: 100%;
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 24px 0;
+}
+.negocio-detalle {
+  font-family: "Roboto", sans-serif;
+  border: 1px solid #e2e2e2;
+  padding: 24px;
+  border-radius: 24px;
+  display: flex;
+  flex-direction: column;
+}
+
+.negocio-detalle hr {
+  background: white !important;
+  margin-bottom: 0;
+}
+
+.negocio-detalle .columna1,
+.negocio-detalle .columna2 {
+  box-sizing: border-box;
+}
+
+.negocio-detalle .columna1 {
+  /* width: 64%; */
+  float: left;
+  padding-right: 1rem;
+}
+.columna1 .top-section {
+  text-align: center;
+}
+.columna1 .top-section img {
+  margin: 0 auto;
+}
+.columna1 .top-section h3 {
+  padding-top: 20px;
+  font-family: "Roboto", sans-serif;
+  font-size: 48px;
+  line-height: 120%;
+}
+.negocio-detalle .columna1 .icon {
+  color: #fbb327;
+}
+
+.negocio-detalle .columna2 {
+  float: right;
+}
+
+.negocio-detalle .columna2 iframe {
+  height: 280px !important;
+  width: 100%;
+}
+
+.negocio-detalle h3 {
+  font-size: 18px;
+  font-weight: bold;
+  margin-bottom: 0;
+}
+
+.negocio-detalle p,
+.negocio-detalle a {
+  font-size: 14px;
+  margin-bottom: 0;
+}
+
+.negocio-detalle .chevron {
+  cursor: pointer;
+  padding-left: 10px;
+  font-size: 24px;
+}
+
+.negocio-detalle .horarios-ocultos p {
+  margin: 5px 0;
+}
+
+button {
+  background-color: #fd5a2b;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 14px;
+  margin: 4px 2px;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #005077;
+}
+.reviews-title {
+  font-size: 24px;
+  line-height: 48px;
+  font-weight: 400;
+}
+.review-details {
+  gap: 0px;
+  margin-top: 28px;
+  margin-bottom: 28px;
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  row-gap: 10px;
+}
+.review {
+  padding: 26px 16px 45px;
+  border: 1px solid #d9d9d9;
+  border-radius: 4px;
+  width: calc(50% - 8px);
+}
+.review p {
+  font-size: 13px;
+  line-height: 20px;
+  font-weight: 400;
+}
+.review h5 {
+  font-size: 18px;
+  line-height: 24px;
+  font-weight: 400;
+  margin: 0;
+}
+.review .link a {
+  display: inline-block;
+  font-size: 12px;
+  line-height: normal;
+  font-weight: 400;
+  text-decoration: underline;
+}
+.opiniones-row a{
+  text-decoration: underline;
+}
+.opiniones-row {
+  margin-top: 20px;
+}
+
+.category {
+  padding: 20px 0px;
+}
+.category p {
+  font-size: 16px;
+  line-height: 120%;
+}
+.category ul {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  justify-content: center;
+  padding-top: 10px;
+}
+.category ul li {
+  padding: 8px 12px;
+  background-color: #000;
+  color: #fff;
+  font-size: 14px;
+  line-height: 120%;
+  border-radius: 50px;
+}
+
+.info-contacto div p {
+  padding: 5px 0px;
+}
+.info-contacto div {
+  padding: 10px;
+  border-radius: 10px;
+  background-color: #f4f4f4;
+}
+.info-contacto li .hidden-hours {
+  position: absolute;
+  top: 35px;
+  width: 100%;
+  min-width: 190px;
+  left: 0;
+  z-index: 1;
+}
+.info-contacto li {
+  position: relative;
+  padding: 4px 8px;
+  margin: 0px;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  font-size: 16px;
+  line-height: 120%;
+  color: #1a1a1a;
+  background: #f4f4f4;
+  border-radius: 300px;
+}
+.info-contacto {
+  padding: 0px 0px 20px;
+  margin: 0px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  align-items: center;
+}
+.info-contacto li .hidden-hours p {
+  font-size: 14px;
+  margin-bottom: 6px;
+}
+.info-contacto li:nth-child(3) {
+  font-size: 14px;
+}
+.contacto p {
+  font-size: 16px;
+  line-height: 120%;
+  padding: 30px 0px;
+}
+.address {
+  padding: 16px 0px;
+  display: flex;
+  gap: 12px;
+  align-items: center;
+}
+.address p {
+  padding: 0px;
+  font-size: 14px;
+  line-height: 120%;
+}
+.contacto h4 {
+  font-size: 24px;
+  line-height: 120%;
+}
+.reviews-title h2 {
+  font-size: 28px;
+  line-height: 120%;
+}
+.e-address-contacto {
+  flex-wrap: wrap;
+  padding: 40px 0px;
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  justify-content: center;
+}
+.e-address-contacto li a {
+  padding: 12px 23px;
+  background-color: transparent;
+  border: 1px solid #1A1A1A;
+  color: #1A1A1A;
+  font-size: 14px;
+  line-height: 120%;
+  border-radius: 50px;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  text-decoration: none;
+}
+.e-address-contacto li a:hover {
+  color: #fff;
+  background-color: #1A1A1A;
+}
+.e-address-contacto a:hover img {
+  filter: invert(100%);
+}
+.opiniones-row p {
+  background-color: #f9f9f9;
+  padding: 16px 14px;
+  border-radius: 4px;
+  margin: 35px 0px;
+}
+.negocio-detalle {
+  background-color: #fff;
+}
+.abogados-sec {
+  padding-top: 36px;
+  max-width: 900px !important;
+}
+.abogados-sec h4 {
+  text-align: center;
+  font-size: 36px;
+  line-height: 120%;
+  padding-bottom: 24px;
+}
+.abogados-cards {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  row-gap: 20px;
+}
+.abogados-cards .card {
+  width: calc(33% - 10px);
+  border: 1px solid #d9d9d9;
+  border-radius: 5px;
+  padding: 18px 10px;
+  background-color: #fff;
+}
+.abogados-cards .card .heading {
+  display: flex;
+  padding-bottom: 20px;
+  gap: 10px;
+}
+.abogados-cards .card .heading img {
+  width: 54px;
+  height: 54px;
+  border-radius: 8px;
+  object-fit: cover;
+}
+.abogados-cards .card .heading h5 {
+  width: calc(100% - 60px);
+  font-size: 20px;
+  line-height: 120%;
+  margin: 0;
+}
+.abogados-cards .card .heading h5 a,
+.negocios-ciudad .col1-right h3 a {
+  color: #000;
+  text-decoration: none;
+  font-weight: 400;
+}
+.abogados-cards p {
+  font-size: 16px;
+  display: flex;
+  line-height: 120%;
+  gap: 10px;
+}
+
+.abogados-cards p span {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+  color: #F7BA44;
+}
+.abogados-cards .rating {
+  display: flex;
+  align-items: center;
+  padding: 10px 0px 35px;
+  justify-content: space-between;
+}
+.abogados-cards .btns {
+  display: flex;
+  gap: 12px;
+}
+.abogados-cards .btns a {
+  width: 50%;
+  display: flex;
+  justify-content: center;
+  padding: 10px 5px;
+  font-size: 16px;
+  line-height: 120%;
+  background-color: #000;
+  color: #fff;
+  border-radius: 4px;
+  transition: all 0.3s ease-in-out;
+  text-decoration: none;
+}
+.abogados-cards .btns a:hover {
+  color: #000;
+  background-color: #f6f6f6;
+}
+.abogados-cards .btns a:last-child {
+  background-color: #f6f6f6;
+  color: #000;
+}
+.abogados-cards .btns a:last-child:hover {
+  background-color: #000;
+  color: #fff;
+}
+/* Start CSS for detalle_negocio_ciudad Shortcode */
+.page-template-default main,
+.page-template-templates main {
+  width: 100%;
+  max-width: 900px;
+  padding: 30px 25px 0;
+  margin: 0 auto;
+  margin-top: 40px;
+  background-color: #fff;
+}
+.page-template-default h1,
+.page-template-default h2,
+.page-template-default h3,
+.page-template-default h4,
+.page-template-default h5,
+.page-template-default h6,
+.page-template-templates h1,
+.page-template-templates h2,
+.page-template-templates h3,
+.page-template-templates h4,
+.page-template-templates h5,
+.page-template-templates h6 {
+  font-weight: 400;
+}
+.page-template-default .wp-block-heading,
+.page-template-templates .wp-block-heading {
+  margin-top: 36px;
+}
+.page-template-default main .custom-widget-container,
+.page-template-templates main .custom-widget-container {
+  margin: 0;
+  width: 100% !important;
+  margin-bottom: 16px;
+  min-width: calc(100% + 80px) !important;
+  margin-left: -40px;
+}
+.page-template-default .custom-widget-container img,
+.page-template-templates .custom-widget-container img {
+  width: 100%;
+  max-height: 250px;
+  object-fit: cover;
+}
+.page-template-default.singular .entry-header,
+.page-template-templates.singular .entry-header {
+  padding-top: 0;
+  padding-bottom: 24px;
+  text-align: left;
+}
+.page-template-default .entry-content > *,
+.page-template-templates .entry-content > * {
+  width: 100% !important;
+  max-width: 100% !important;
+}
+.page-template-default .post-inner,
+.page-template-templates .post-inner {
+  padding-top: 0;
+}
+.page-template-default h1.entry-title,
+.page-template-templates h1.entry-title {
+  font-size: 40px;
+  line-height: 48px;
+  font-weight: 400;
+}
+.negocios-ciudad {
+  border: 1px solid #D9D9D9;
+  padding: 26px 22px 16px;
+  color: #1A1A1A;
+  border-radius: 4px;
+  display: flex;
+}
+.negocios-ciudad .col1 {
+  width: calc(100% - 293px);
+  padding-right: 19px;
+}
+.inner-row {
+  display: flex;
+  column-gap: 16px;
+}
+.negocios-ciudad .col1-right .address p {
+  margin-bottom: 0;
+  line-height: 16px;
+}
+.negocios-ciudad .col1-right .address {
+  padding: 4px 0;
+  gap: 11px;
+}
+.negocios-ciudad .col1-right .address img {
+  opacity: 0.6;
+}
+.negocios-ciudad .col1-right .rating {
+  font-size: 14px;
+  line-height: 16px;
+  font-weight: 400;
+  margin: 0;
+}
+.negocios-ciudad .col1-right .rating .icon {
+  margin-right: 8px;
+  color: #FBB327;
+}
+.negocios-ciudad .col1-left img {
+  width: 56px;
+  height: auto;
+}
+.negocios-ciudad .col1-right h3 {
+  margin: 0;
+  font-size: 24px;
+  line-height: normal;
+  font-weight: 400;
+}
+.negocios-ciudad .col1-bottom {
+  width: 100%;
+  border-top: 1px solid #D9D9D9;
+  margin-top: 12px;
+  padding-top: 12px;
+}
+.negocios-ciudad .col1-bottom .info-contacto {
+  padding-bottom: 12px;
+}
+.negocios-ciudad .col1-bottom .info-contacto li {
+  font-size: 13px;
+  line-height: 16px;
+  border-radius: 8px;
+}
+.negocios-ciudad .col1-bottom .info-contacto li a {
+  text-decoration: none;
+  color: #1A1A11;
+}
+.negocios-ciudad .col1-bottom .info-contacto li a:hover {
+  color: #F59E0B;
+}
+.negocios-ciudad .post-content {
+  font-size: 14px;
+  line-height: 20px;
+  margin-bottom: 0;
+}
+.negocios-ciudad .post-content a {
+  color: #1A1A1A;
+  font-size: 14px;
+  line-height: 20px;
+  font-weight: 400;
+}
+.negocios-ciudad .post-content a:hover {
+  color: #F59E0B;
+  text-decoration: underline;
+}
+.negocios-ciudad .col2 {
+  width: 293px;
+  margin-bottom: 16px;
+}
+.negocios-ciudad .col2 iframe {
+  max-height: 200px;
+  margin-bottom: 24px;
+}
+.negocios-ciudad .col2 .btn-row {
+  display: flex;
+  justify-content: space-between;
+}
+.negocios-ciudad .col2 .btn-row a {
+  font-size: 13px;
+  line-height: normal;
+  padding: 14px 19px;
+  border: 1px solid #1A1A1A;
+  display: inline-block;
+  text-decoration: none;
+  border-radius: 4px;
+  max-width: 140px;
+  width: 100%;
+  text-align: center;
+}
+.negocios-ciudad .col2 .btn-row a.dark-btn {
+  background-color: #1A1A1A;
+  color: #fff;
+}
+.negocios-ciudad .col2 .btn-row a.dark-btn:hover {
+  color: #1A1A1A;
+  background-color: #fff;
+}
+.negocios-ciudad .col2 .btn-row a.light-btn {
+  color: #1A1A1A;
+  background-color: #fff;
+}
+.negocios-ciudad .col2 .btn-row a.light-btn:hover {
+  color: #fff;
+  background-color: #1A1A1A;
+}
+.negocios-ciudad .reviews-title h2 {
+  font-size: 13px;
+  line-height: 16px;
+  color: #F59E0B;
+  font-weight: 600;
+  margin: 20px 0 12px;
+  display: flex;
+  align-items: center;
+  position: relative;
+  padding-left: 18px;
+}
+.negocios-ciudad .reviews-title .chevron {
+  position: absolute;
+  left: 0;
+  top: -1px;
+  font-size: 18px;
+}
+.negocios-ciudad .reviews-title .text {
+  display: block;
+  border-bottom: 1px solid #F59E0B;
+}
+.negocios-ciudad .reviews-title h2 img {
+  margin-left: 6px;
+}
+.negocios-ciudad .review-details {
+  margin-top: 0;
+  flex-direction: column;
+  margin-bottom: 0;
+  row-gap: 8px;
+}
+.negocios-ciudad .review-details .review {
+  width: 100%;
+  padding: 16px 16px 20px;
+}
+.negocios-ciudad  .review-details .review h5{
+  margin: 0;
+}
+.negocios-ciudad  .review-details .review p {
+  margin: 0 0 8px 0;
+}
+.negocios-ciudad  .review-details .review .link {
+  line-height: normal;
+}
+.negocios-ciudad  .review-details .review .link a {  
+  color: #1A1A1A;
+}
+/* End CSS for detalle_negocio_ciudad Shortcode */
+/* End CSS for detalle_negocios_estado Shortcode */
+.negocio-estado {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 29px;
+}
+.estado-row {
+  border: 1px solid #1A1A1A;
+  background-color: #1A1A1A;
+  color: #fff;
+  padding: 12px;
+  border-radius: 4px;
+  width: calc(33.33% - 20px);
+  position: relative;
+  transition: all 0.15s linear;
+}
+.estado-row:hover {
+  background-color: #fff;
+  color: #1A1A1A;
+  transition: all 0.15s linear;
+}
+.estado-row:hover a img {
+  filter: invert(1);
+}
+.estado-row h5,
+.estado-row h6 {
+  margin: 0 !important;
+  font-weight: 400;
+}
+.estado-row h5 {
+  font-size: 18px;
+  line-height: 36px;
+  margin-bottom: 10px !important;
+}
+.estado-row h6 {
+  font-size: 13px;
+  line-height: 26px;
+}
+.estado-row a {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  left: 0;
+  top: 0;
+}
+.estado-row a img {
+  bottom: 20px;
+  position: absolute;
+  right: 16px;
+}
+/* End CSS for detalle_negocios_estado Shortcode */
+/* Start FAQ section CSS */
+.page-template-default details[open] summary::before,
+.page-template-templates details[open] summary::before {
+  display: none;
+}
+.page-template-default details,
+.page-template-templates details {
+  border-bottom: 1px solid #1A1A1A;
+  padding-bottom: 16px;
+  margin-bottom: 16px;
+}
+.page-template-default main .section-inner,
+.page-template-templates main .section-inner {
+  width: 100%;
+}
+.page-template-default .custom-widget-container:last-child,
+.page-template-templates .custom-widget-container:last-child {
+  margin-top: 36px;
+  margin-bottom: 36px;
+}
+.page-template-default details p:last-child,
+.page-template-templates details p:last-child {
+  margin-bottom: 0;
+}
+.page-template-default details .wp-block-heading,
+.page-template-templates details .wp-block-heading {
+  margin: 0 0 15px;
+}
+.page-template-default summary,
+.page-template-templates summary {
+  font-size: 20px;
+  line-height: 42px;
+  position: relative;
+  width: calc(100% - 22px);
+}
+.page-template-default summary::marker,
+.page-template-templates summary::marker {    
+  color: transparent;
+  font-size: 0;
+}
+.page-template-default summary::after,
+.page-template-default summary::before,
+.page-template-templates summary::after,
+.page-template-templates summary::before {
+  content: "";
+  width: 14px;
+  height: 2px;
+  background-color:#1C1B1F;
+  display: block;
+  position: absolute;
+  top: 48%;
+  right: -28px;
+  transition: all 0.15s cubic-bezier(.42, 0, .58, 1);
+  opacity: 1;
+  border-radius: 2px;
+}
+.page-template-default summary::after,
+.page-template-templates summary::after {
+  transform: translate(-50%, 0);  
+}
+.page-template-default summary::before,
+.page-template-templates summary::before {
+  transform: translate(-50%, 0) rotate(90deg);
+}
+/* End FAQ section CSS */
+@media (max-width: 1024px) {
+  .page-template-default main .custom-widget-container,
+  .page-template-templates main .custom-widget-container {
+    min-width: 100% !important;
+    margin-left: auto;
+  }
+}
+@media (max-width: 991px) {
+  .columna1 .top-section h3 {
+    font-size: 38px;
+  }
+  .abogados-cards .card {
+    width: calc(50% - 10px);
+  }
+  .abogados-sec h4 {
+    font-size: 30px;
+  }
+}
+@media (max-width: 768px) {
+  .negocio-detalle .columna1 {
+    width: 100%;
+    float: left;
+  }
+  .columna1 .top-section h3 {
+    font-size: 35px;
+  }
+  .negocio-detalle .columna2 {
+    width: 100%;
+    float: right;
+  }
+  .review-details {
+    flex-wrap: wrap;
+  }
+  .review {
+    width: calc(50% - 14px);
+  }
+  .page-template-default summary,
+  .page-template-templates summary {
+    line-height: 24px;
+  }
+  .negocios-ciudad {
+    flex-direction: column;
+    padding: 18px;
+  }
+  .negocios-ciudad .col1 {
+    width: 100%;
+    padding-right: 0;
+  }
+  .negocios-ciudad .col2 {
+    width: 100%;
+    margin-bottom: 0;
+    display: flex;
+    flex-direction: column-reverse;
+  }
+  .negocios-ciudad .col2 .btn-row {
+    margin-bottom: 16px;
+    margin-top: 6px;
+    justify-content: flex-start;
+    gap: 5px;
+  }
+  .negocios-ciudad .review-details {
+    margin-bottom: 10px;
+  }
+  .negocios-ciudad .col2 .btn-row a {
+    max-width: 112px;
+    padding: 12px 14px;
+  }
+  .page-template-default .wp-block-heading,
+  .page-template-templates .wp-block-heading {
+    margin-top: 22px;
+  }
+  .page-template-default main,
+  .page-template-templates main {
+    padding-top: 20px;
+  }
+  .page-template-default h1.entry-title,
+  .page-template-templates h1.entry-title {
+    font-size: 34px;
+    line-height: 42px;
+  }
+  .review h5 {
+    font-size: 16px;
+  }
+  .inner-row {
+    flex-direction: column;
+  }
+  .col1-left {
+    margin-bottom: 10px;
+  }
+  .negocios-ciudad .col1-right h3 {
+    font-size: 20px;
+  }
+  .negocios-ciudad .col1-right .address {
+    padding: 6px 0;
+  }
+  .negocio-estado {
+    gap: 16px;
+  }
+  .negocios-ciudad .col2 iframe {
+    margin-bottom: 0;
+    width: 100% !important;
+  }
+  .estado-row {
+    width: calc(51% - 15px);
+  }
+  .page-template-default .custom-widget-container img,
+  .page-template-templates .custom-widget-container img {
+    max-height: 180px;
+  }
+  .page-template-default h2.wp-block-heading,
+  .page-template-templates h2.wp-block-heading {
+    font-size: 32px;
+  }
+  .page-template-default h3.wp-block-heading,
+  .page-template-templates h3.wp-block-heading {
+    font-size: 30px;
+  }
+  .page-template-default h4.wp-block-heading,
+  .page-template-templates h4.wp-block-heading {
+    font-size: 28px;
+  }
+}
+@media (max-width: 690px) {
+  .abogados-sec h4 {
+    font-size: 26px;
+  }
+  .review,
+  .abogados-cards .card {
+    width: 100%;
+  }
+}
