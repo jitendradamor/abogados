@@ -146,9 +146,9 @@ function mostrar_detalle_negocio_ciudad($atts)
                                         <p><?php echo esc_html($estrellas); ?> <span class="icon">&#9733;</span></p><?php
                                     } ?>
                                 </div>
-                                <div class="btns">
-                                    <p><a href="<?php echo $permalink; ?>#contactar">Contactar</a></p>
-                                    <p><a href="<?php echo $permalink; ?>">Ver Servicios</a></p>
+                                <div class="btn-row">
+                                    <a class="dark-btn" href="<?php echo $permalink; ?>#contactar">Contactar</a>
+                                    <a class="light-btn" href="<?php echo $permalink; ?>">Ver Servicios</a>
                                 </div>
                         </div>
                 <?php } ?>

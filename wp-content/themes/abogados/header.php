@@ -27,52 +27,58 @@
 
 	<header id="masthead" class="site-header">
 		<div class="container">
-			<div class="site-branding">
-				<?php
-				the_custom_logo();
-				if ( is_front_page() && is_home() ) :
-					?>
-					<h1 class="site-title"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a></h1>
+			<div class="inner-header">
+				<div class="site-branding">
 					<?php
-				else :
-					?>
-					<p class="site-title"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a></p>
-					<?php
-				endif;
-				$abogados_description = get_bloginfo( 'description', 'display' );
-				if ( $abogados_description || is_customize_preview() ) :
-					?>
-					<p class="site-description"><?php echo $abogados_description; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?></p>
-				<?php endif; ?>
-			</div><!-- .site-branding -->
-			<div class="header-right mobile menu">
-				<div class="menu-icon">
-					<a href="#menu" class="menu-btn mburger mburger--squeeze">
-					<b></b>
-					<b></b>
-					<b></b>
-					</a>
-						<nav id="menu">
-						<?php
-							wp_nav_menu(
-								array(
-									'theme_location' => 'menu-1',
-									'menu_id'        => 'primary-menu',
-								)
-							);
+					the_custom_logo();
+					if ( is_front_page() && is_home() ) :
 						?>
-						</nav>
+						<h1 class="site-title"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a></h1>
+						<?php
+					else :
+						?>
+						<p class="site-title"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a></p>
+						<?php
+					endif;
+					$abogados_description = get_bloginfo( 'description', 'display' );
+					if ( $abogados_description || is_customize_preview() ) :
+						?>
+						<p class="site-description"><?php echo $abogados_description; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?></p>
+					<?php endif; ?>
+				</div><!-- .site-branding -->
+				
+
+				<nav id="site-navigation" class="main-navigation desktop-nav">
+					<?php
+					wp_nav_menu(
+						array(
+							'theme_location' => 'menu-1',
+							'menu_id'        => 'primary-menu',
+						)
+					);
+					?>
+				</nav><!-- #site-navigation -->
+
+				<!-- Mobile Menu -->
+				<div class="header-right mobile-nav">
+					<div class="menu-icon">
+						<a href="#mobile-menu" class="menu-btn mburger mburger--squeeze">
+						<b></b>
+						<b></b>
+						<b></b>
+						</a>
+							<nav id="mobile-menu">
+							<?php
+								wp_nav_menu(
+									array(
+										'theme_location' => 'menu-1',
+										'menu_id'        => 'primary-menu',
+									)
+								);
+							?>
+							</nav>
+					</div>
 				</div>
 			</div>
-			<nav id="site-navigation" class="main-navigation">
-				<?php
-				wp_nav_menu(
-					array(
-						'theme_location' => 'menu-1',
-						'menu_id'        => 'primary-menu',
-					)
-				);
-				?>
-			</nav><!-- #site-navigation -->
 		</div>
 	</header><!-- #masthead -->
