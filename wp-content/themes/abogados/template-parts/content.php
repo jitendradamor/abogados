@@ -22,8 +22,9 @@
 			?>
 			<div class="entry-meta">
 				<?php
-				abogados_posted_on();
-				abogados_posted_by();
+				abogados_entry_footer();
+				abogados_posted_on();				
+				// abogados_posted_by();
 				?>
 			</div><!-- .entry-meta -->
 		<?php endif; ?>
@@ -56,8 +57,4 @@
 		);
 		?>
 	</div><!-- .entry-content -->
-
-	<footer class="entry-footer">
-		<?php abogados_entry_footer(); ?>
-	</footer><!-- .entry-footer -->
 </article><!-- #post-<?php the_ID(); ?> -->
