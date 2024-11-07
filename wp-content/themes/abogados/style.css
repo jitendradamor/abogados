@@ -24,63 +24,168 @@ Nicolas Gallagher and Jonathan Neal https://necolas.github.io/normalize.css/
 
 
 /* font family */
-@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Source+Serif+4:ital,opsz,wght@0,8..60,200..900;1,8..60,200..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Source+Serif+4:ital,opsz,wght@0,8..60,200..900;1,8..60,200..900&display=swap');
 
-h1,h2,h3,h4,h5,h6{
-	font-family: "Source Serif 4", system-ui;
+/* BDO Grotesk Font */
+@font-face {
+    font-family: 'BDO Grotesk';
+    src: local('BDO Grotesk Regular'), local('BDOGrotesk-Regular'),
+        url('assets/fonts/BDOGrotesk/BDOGrotesk-Regular.woff2') format('woff2'),
+        url('assets/fonts/BDOGrotesk/BDOGrotesk-Regular.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
 }
-body,p{
-	font-family: "Inter", sans-serif;
+
+/* Start Common CSS */
+.page-template-default .wp-block-heading,
+.page-template-templates .wp-block-heading {
+    margin-top: 0;
 }
-.page-template-default main, .page-template-templates main .container {
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-family: "Source Serif 4", system-ui;
+}
+
+body,
+p {
+    font-family: "Inter", sans-serif;
+}
+
+.page-template-default main {
     margin: 0 auto;
-    max-width: 1200px;
-    padding: 0px 15px;
+    max-width: 100%;
+    padding: 0;
+    width: 100%;
 }
+
 .container {
     margin: 0 auto;
-    max-width: 1200px;
+    max-width: 1230px;
     padding: 0px 15px;
+    width: 100%;
 }
 
-h1{
-	font-size: 48px;
-	line-height: 48px;
-	align-items: center;
-	font-weight: 400;
-	color: #fff;
-}
-h2{
-	font-size: 40px;
-	line-height: 48px;
-	align-items: center;
-	font-weight: 400;
-	color : #000000;
-}
-h3{
-	font-size: 20px;
-	line-height: 28px;
-	align-items: center;
-	font-weight: 400;
-	color : #000000;
+h1 {
+    font-size: 48px;
+    line-height: 48px;
+    align-items: center;
+    font-weight: 400;
+    color: #fff;
 }
 
-header#masthead {
-    background: #171717;
+h2 {
+    font-size: 40px;
+    line-height: 48px;
+    align-items: center;
+    font-weight: 400;
+    color: #000000;
 }
-header#masthead {
-    background: #171717;
-    display: flex;
+
+h3 {
+    font-size: 20px;
+    line-height: 28px;
+    align-items: center;
+    font-weight: 400;
+    color: #000000;
 }
-/* header#masthead {
-    background: #171717;
+a {
+    color:#000000;
+}
+button,
+a {
+    transition: 300ms;
+}
+footer#colophon ul#menu-footer-menu li a:hover,
+nav#site-navigation a:hover,
+button:hover,
+a:hover {
+    color: #EC2128;
+    transition: 300ms;
+}
+.entry-header {
+    margin-bottom: 30px;
+}
+.entry-content p {
+    margin-bottom: 16px;
+}
+.entry-content h2 {
+    margin-bottom: 36px;
+}
+/* End Common CSS */
+
+/* Start Header CSS */
+ul#primary-menu.mm-listview {
     display: flex;
-    padding: 10px 30px;
-	align-items: center;
+    flex-direction: column;
+}
+body .menu-main-menu-container,
+body .mm-navbar {
+    background: #171717;
+    color: #fff;
+}
+.mm-menu a:active,
+.mm-menu a:hover {
+    color: #EC2128;
+}
+body a.mburger {
+    color: #fff;
+}
+.mburger b {
+    height: 2px;
+}
+/* .mm-wrapper--opened .mburger b:nth-of-type(3) {
+    top: calc(50% -(var(--mb-bar-height) / 4));
+}
+.mm-wrapper--opened .mburger b:nth-of-type(1) {
+    bottom: calc(50% -(var(--mb-bar-height) / 4));
 } */
-header#masthead  .site-branding {
+.mburger {
+    height: 50px;
+    width: 50px;
+    padding: 0;
+}
+.mm-menu a,
+.mm-menu a:link, .mm-menu a:visited {
+    color: #fff;
+}
+.mm-listitem {
+    color: #fff;
+}
+.mm-listitem:after {
+    inset-inline-start: 0;
+    inset-inline-end: 20px;
+}
+.mm-navbar,
+.mm-listitem:after {
+    border-color: #919191;
+}
+.inner-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 0;
+}
+
+header#masthead {
+    background: #171717;
+}
+
+header#masthead .container {
+    margin: 0 auto;
+    max-width: 1382px;
+    padding: 0px 15px;
+    width: 100%;
+}
+
+header#masthead .site-branding {
     width: 25%;
 }
+
 nav#site-navigation {
     width: 75%;
 }
@@ -90,92 +195,1308 @@ nav#site-navigation a {
     line-height: 24px;
     font-weight: 400;
     text-align: center;
-	color: #fff;
-	padding-right: 24px;
+    color: #fff;    
+    font-family: 'BDO Grotesk';
+}
+ul#primary-menu li > a {
+    padding: 26px 24px 26px 0;
 }
 ul#primary-menu {
     display: flex;
     justify-content: end;
 }
-footer#colophon {
+
+.mobile-nav {
+    display: none;
+}
+header .inner-header img {
+    max-width: 140px;
+    height: auto;
+}
+header .sub-menu {
+    background: #000;
+    border-radius: 0.4rem;
+    color: #fff;
+    font-size: 1.7rem;
+    opacity: 0;
+    position: absolute;
+    right: 9999rem;
+    top: calc(100% + 20px);
+    transition: opacity 0.15s linear, transform 0.15s linear, right 0s 0.15s;
+    transform: translateY(0.6rem);
+    width: 205px;
+    z-index: 1;
+    padding: 10px 20px;
+}
+header ul#primary-menu li.menu-item-has-children > a {
+    position: relative;
+    margin-right: 10px;
+}
+header ul#primary-menu li.menu-item-has-children > ul li a {
+    display: block;
+    text-align: left;
+    padding: 5px 0;
+}
+header ul#primary-menu li.menu-item-has-children > a::after {
+    content: "";
+    display: block;
+    position: absolute;
+    top: 0;
+    right: 8px;
+    bottom: 0;
+    width: 8px;
+    height: 8px;
+    margin: auto;
+    box-sizing: border-box;
+    border: 2px solid #fff;
+    border-bottom: none;
+    border-right: none;
+    transform: rotate(225deg);
+}
+header ul#primary-menu li.menu-item-has-children:hover a::after {
+    border-color: #EC2128;
+    transition: 300ms;
+}
+body .mm-btn--next:after, .mm-btn--prev:before {
+    border-color: #fff;
+}
+body .mm-panel {
+    background-color: #000;
+}
+header ul#primary-menu li {
+    position: relative;
+}
+header ul#primary-menu li.menu-item-has-children > ul li {
+    line-height: 16px;
+}
+header li.menu-item-has-children:hover > ul {
+    right: 0;
+    opacity: 1;
+    transform: translateY(0);
+    transition: opacity 0.15s linear, transform 0.15s linear;
+}
+/* End Header CSS */
+
+/* Start Footer CSS */
+footer {
     background: #000000;
-	padding: 30px 30px;
+    padding: 29px 0 53px;
 }
 
-footer#colophon  ul#menu-footer-menu {
+footer#colophon ul#menu-footer-menu {
     display: flex;
+    flex-wrap: wrap;
 }
-footer#colophon  ul#menu-footer-menu li a {
-    color: #9C9C9C;
-}
+
 footer#colophon ul#menu-footer-menu li a {
     color: #9C9C9C;
-    padding: 0px 10px;
+    font-family: 'BDO Grotesk';
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 24px;
+    color: #9C9C9C
 }
-footer#colophon  p{
-	padding-top: 20px;
-	font-size: 12px;
-	line-height: 20px;
-	font-weight: 400;
-	color: #9C9C9C;
+
+footer#colophon p {
+    padding-top: 20px;
+    font-size: 12px;
+    line-height: 20px;
+    font-weight: 400;
+    color: #9C9C9C;
 }
 
 footer .inner-sec {
     display: flex;
-	gap: 10%;
-	align-items: end;
+    gap: 15px;
+    align-items: end;
+    justify-content: space-between;
 }
+
 footer .left {
-    width: 60%;
-	
+    width: 59%;
+    max-width: 668px;
+}
+header .inner-header img {
+    max-width: 140px;
+    height: auto;
 }
 footer .right {
-    width: 30%;
-	text-align: right;
+    width: 31%;
+    text-align: right;
 }
+
 footer#colophon ul#menu-footer-menu li a:after {
     content: "|";
     padding: 6px;
 }
-.inner-sec .left img {
-    padding-bottom: 20px;
+
+footer .inner-sec .left img {
+    padding-bottom: 8px;
+    width: 144px;
+    height: auto;
 }
 
+/* End Footer CSS */
 
-/*post listing css*/
+/* **************************************************************************** */
+/* ****************************** Home Page CSS ******************************* */
+/* **************************************************************************** */
 
+/* Start Hero Section CSS  */
+.home article > .entry-header {
+    display: none;
+}
+.home h2 {
+    margin-bottom: 30px;
+}
+div.section,
+.page-template-default .entry-content > *:not(.hero-banner-block) {
+    padding: 48px 0;
+}
+.hero-banner-block {
+    padding: 193px 0 66px;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: top center;
+    margin-bottom: 21px;
+}
+
+.hero-banner-block .container {
+    max-width: 907px;
+}
+.hero-banner-block h1,
+.hero-banner-block .small-text,
+.hero-banner-block h1 + p {
+    max-width: 742px;
+    margin: 0 auto;
+}
+.hero-banner-block .small-text {
+    font-family: 'Inter';
+    font-weight: 500;
+    font-size: 13px;
+    line-height: 20px;
+    text-align: center;
+    color: #FFFFFF;
+}
+
+.hero-banner-block h1 {
+    font-family: 'Source Serif 4';
+    font-weight: 400;
+    font-size: 48px;
+    line-height: 48px;
+    padding: 5px 0 13px;
+}
+.hero-banner-block .bottom-text {
+    text-align: left;
+}
+.hero-banner-block .hero-form form input,
+.hero-banner-block .bottom-text,
+.hero-banner-block .title-desc {
+    font-family: 'BDO Grotesk';
+    font-weight: 400;
+    line-height: 24px;
+}
+
+.hero-banner-block .title-desc {
+    font-size: 16px;
+}
+
+.bottom-text {
+    font-size: 14px;
+    opacity: 0.79;
+}
+
+.hero-banner-block .hero-form {
+    padding: 33px 0 13px;
+}
+.hero-banner-block .hero-form form {
+    width: 100%;
+    position: relative;
+}
+.hero-banner-block .hero-form form input {
+    width: 100%;
+    border: 0;
+    padding: 17px 50px 17px 27px;
+}
+.hero-banner-block .hero-form form button {
+    position: absolute;
+    right: 0;
+    top: 2px;
+    height: 100%;
+    margin: 0;
+    background: transparent;
+    padding: 0 17px;
+}
+/* End Hero Section CSS  */
+
+/* Start Abogados Accident Section CSS */
+.abogados-accident .three-column-layout {
+    gap: 36px;
+    align-items: flex-start;
+}
+.abogados-accident .three-column-layout .wp-block-group {
+    width: calc(100% / 3);
+}
+.abogados-accident .three-column-layout .wp-block-group img {
+    border-radius: 12px;
+    min-height: 330px;
+    width: auto;
+    object-fit: cover;
+}
+.abogados-accident .three-column-layout .wp-block-group h3 {
+    margin: 15px 0 7px;
+}
+.abogados-accident .three-column-layout .wp-block-group a {
+    font-family: 'BDO Grotesk';
+    font-weight: 400;
+    font-size: 13px;
+    line-height: 24px;
+    text-decoration-line: underline;
+    color: #000000;
+}
+.abogados-accident .three-column-layout .wp-block-group a:hover {
+    color: #ec2128;
+}
+/* End Abogados Accident Section CSS */
+
+    
+/* Start "Abogados de Accidentes de Carros" Section CSS */
+.heading-dot {
+    position: relative;
+    display: inline-block;
+}
+.heading-dot::after {
+    content: '';
+    position: absolute;
+    bottom: 10px;
+    right: -10px;
+    width: 8px;
+    height: 8px;
+    background-color: #EC2128;
+}
+.four-column-layout .card-inner {
+    display: flex;
+    gap: 24px;
+    justify-content: space-between;
+}
+.four-column-layout .card-inner .card {
+    border: 1px solid #D9D9D9;
+    border-radius: 4px;
+    padding: 18px 16px 22px;
+    width: calc(100% / 4);
+    display: flex;
+    flex-direction: column;
+}
+.four-column-layout .card-inner .card .heading {
+    display: flex;
+    gap: 9px;
+}
+.four-column-layout .card-inner .card .heading img {
+    border-radius: 8px;
+    border: 1px solid #EDEDED;
+}
+.four-column-layout .card-inner .card .heading h3 {
+    font-size: 18px;
+    line-height: 24px;
+}
+.four-column-layout .card-inner .card .heading + p {
+    padding: 23px 0 13px;
+    font-family: 'BDO Grotesk';
+    font-weight: 400;
+    font-size: 13px;
+    line-height: 20px;
+}
+.four-column-layout .card-inner .card .rating {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 35px;
+    font-weight: 400;
+    font-size: 13px;
+    line-height: 20px;
+    text-transform: uppercase;
+    margin-top: auto;
+}
+.four-column-layout .card-inner .card .rating p:last-child {
+    width: 48px;
+}
+.four-column-layout .card-inner .card .rating * {
+    font-family: "JetBrains Mono", monospace;
+}
+.four-column-layout .card-inner .card .rating .icon {
+    color: #F7BA44;
+    font-size: 16px;
+}
+.four-column-layout .card-main .card-bottom {
+    text-align: right;
+    margin-top: 25px;
+}
+.four-column-layout .card-main .card-bottom a {
+    font-family: 'BDO Grotesk';
+    font-weight: 400;
+    font-size: 13px;
+    line-height: 24px;
+    text-decoration: underline;
+}
+.carros-por-ciudades .four-column-layout:last-child .wp-block-group-is-layout-grid {
+    margin-bottom: 0;
+}
+.btn-row {
+    display: flex;
+    gap: 13px;
+}
+.btn-row a {
+    padding: 8px 23px;
+    font-family: 'BDO Grotesk';
+    font-weight: 400;
+    font-size: 13px;
+    line-height: 30px;
+    border-radius: 4px;
+}
+.btn-row .dark-btn {
+    background-color: #000000;
+    color: #FFFFFF;   
+}
+.btn-row .dark-btn:hover {
+    background-color: #F6F6F6;
+    color: #000000;
+}
+.btn-row .light-btn {
+    background-color: #F6F6F6;
+    color: #000000;
+}
+.btn-row .light-btn:hover {
+    background-color: #000000;
+    color: #FFFFFF;
+}
+/* End "Abogados de Accidentes de Carros" Section CSS */
+
+/* Start "Abogados de Accidentes de Carros por Ciudades" Section CSS */
+.carros-por-ciudades .wp-block-group-is-layout-grid {
+    display: grid;
+    gap: 29px;
+    margin-bottom: 30px;
+}
+.carros-por-ciudades .state_inner {
+    background-color: #FAFAFA;
+    border-radius: 4px;
+    padding: 15px 21px 17px 10px;
+}
+.carros-por-ciudades .state_inner h3 {
+    font-family: 'Source Serif 4';
+    font-weight: 400;
+    font-size: 24px;
+    line-height: 36px;
+    margin-bottom: 2px;
+}
+.carros-por-ciudades .state_inner a {
+    display: block;
+    position: relative;
+    font-size: 13px;
+    line-height: 20px;
+    letter-spacing: 0.02em;
+    text-transform: uppercase;
+}
+.post-listing .post-details a.read-more::after,
+.carros-por-ciudades .state_inner a::after {
+    content: '';
+    position: absolute;
+    right: 0;
+    bottom: 2px;
+    width: 14px;
+    height: 14px;
+    background-size: 13.25px;
+    background-position: right bottom;
+}
+.post-listing .post-details a.read-more::after,
+.carros-por-ciudades .state_inner a::after {
+    background-image: url('data:image/svg+xml,<svg width="14" height="15" viewBox="0 0 14 15" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M11.3527 8.16484H0.636719V6.83941H11.3527L6.31929 1.80597L7.26409 0.874756L13.8915 7.50213L7.26409 14.1295L6.31929 13.1983L11.3527 8.16484Z" fill="%231C1B1F"/></svg>');
+}
+.post-listing .post-details a.read-more:hover::after,
+.carros-por-ciudades .state_inner a:hover::after {
+    background-image: url('data:image/svg+xml,<svg width="14" height="15" viewBox="0 0 14 15" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M11.3527 8.16484H0.636719V6.83941H11.3527L6.31929 1.80597L7.26409 0.874756L13.8915 7.50213L7.26409 14.1295L6.31929 13.1983L11.3527 8.16484Z" fill="%23EC2128"/></svg>');
+}
+/* End "Abogados de Accidentes de Carros por Ciudades" Section CSS */
+
+/* Start "Últimas Novedades" Section CSS */
 
 .post-listing {
     display: grid;
-    grid-template-columns: repeat(3, 1fr); /* Three columns */
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    row-gap: 23px;
+    margin-top: 4px;
 }
 
-.post-item {
-    border: 1px solid #ddd;
+.post-listing .post-item {
+    border: 0.88px solid #D9D9D9;
     display: flex;
     flex-direction: column;
     align-items: center;
+    border-right-width: 0;
 }
-
-.post-thumb .post-image {
-    width: 100%; /* Adjust image to fill column width */
-    margin-bottom: 15px;
+.post-listing .post-thumb {
+    width: 100%;
 }
-
-.post-meta {
+.post-listing .post-item img {
+    display: block;
+    width: 100%;
+    height: auto;
+    max-height: 266px;
+    height: 266px;
+    object-fit: cover;
+}
+.post-listing .post-meta {
     display: flex;
     justify-content: space-between;
     width: 100%;
-    margin-bottom: 10px;
+    font-size: 13px;
+    line-height: 18px;
+    letter-spacing: -0.02em;
+    text-transform: uppercase;
+}
+.post-listing .post-details {
+    padding: 15px 15px 22px 13px;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+.post-listing .post-details a.read-more {
+    font-size: 14px;
+    line-height: 18px;
+    letter-spacing: -0.02em;
+    position: relative;
+    display: block;
+    margin-top: auto;
+}
+.post-listing .post-title {
+    line-height: 27px;
+    margin-top: 12px;
+    margin-bottom: 46px;
+}
+.post-listing a:hover .post-title {
+    color: #EC2128;
+    transition: 300ms;
+}
+.post-listing .post-item:nth-child(3n) {
+    border-right: 0.88px solid #D9D9D9;
+}
+/* End "Últimas Novedades" Section CSS */
+
+/* Start "Qué tener en cuenta antes de elegir un abogado" Section CSS */
+.image-text-content .wp-block-media-text {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+.image-text-content .wp-block-media-text .wp-block-media-text__content > *:not(h2) {
+    font-family: 'BDO Grotesk';
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 24px;
+}
+.home .image-text-content h2 {
+    padding-right: 20px;
+}
+.image-text-content .wp-block-media-text figure {
+    padding-right: 86px;
+    width: calc(100% - 15px);
+}
+.image-text-content .wp-block-media-text figure img {
+    height: 421px;
+    object-fit: cover;
+}
+.image-text-content .wp-block-media-text > .wp-block-media-text__content {
+    padding: 0;
+    width: calc(100% + 15px);
+    margin-left: -15px;
+}
+.image-text-content .wp-block-media-text > .wp-block-media-text__content p {
+    padding-bottom: 26px;
+}
+.image-text-content .wp-block-media-text > .wp-block-media-text__content p:last-child {
+    padding-bottom: 0;
+}
+/* End "Qué tener en cuenta antes de elegir un abogado" Section CSS */
+
+/* Start "Entidades que apoyan a la comunidad latina en Estados Unidos" Section CSS */
+.organization {
+    margin-bottom: 48px;
+}
+.organization .wp-block-columns {    
+    align-items: center !important;
+}
+.home .organization h2 {
+    margin-bottom: 0;
+}
+.organization .wp-block-gallery {
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+    padding-right: 80px;
+    padding-left: 68px;
+    column-gap: 35px !important;
+    row-gap: 29px !important;
+    justify-content: space-between;
+}
+.organization .wp-block-gallery .wp-block-image {
+    max-width: calc(calc(100% / 3) - 25px) !important;
+    height: auto;
+    width: 100% !important;
+    display: block !important;
+    margin-bottom: 0 !important;
+}
+.organization .wp-block-gallery.has-nested-images figure.wp-block-image img {
+    max-height: 115px;
+    width: auto;
+    max-width: unset !important;
+    mix-blend-mode: luminosity;
+}
+/* End "Entidades que apoyan a la comunidad latina en Estados Unidos" Section CSS */
+
+/* End Home page */
+
+/* Start City Page CSS */
+.wp-block-group .wp-block-heading {
+    margin-top: 36px;
+}
+.page-template-templates main .entry-content > p,
+.page-template-templates main .entry-content > h2 {
+    padding: 0 30px;
+}
+.page-template-templates .negocio-estado + .wp-block-heading {
+    margin-top: 30px;
+}
+.three-box-layout .card-inner {
+    display: flex;
+    gap: 24px;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+.three-box-layout .card-inner .card {
+    border: 1px solid #D9D9D9;
+    border-radius: 4px;
+    padding: 18px 16px 22px;
+    width: calc(calc(100% / 3) - 16px);
+    display: flex;
+    flex-direction: column;
+}
+.three-box-layout .card-inner .card .heading {
+    display: flex;
+    gap: 9px;
+}
+.three-box-layout .card-inner .card .heading img {
+    border-radius: 8px;
+    border: 1px solid #EDEDED;
+}
+.three-box-layout .card-inner .card .heading h3 {
+    font-size: 18px;
+    line-height: 24px;
+}
+.three-box-layout .card-inner .card .heading + p {
+    padding: 23px 0 13px;
+    font-family: 'BDO Grotesk';
+    font-weight: 400;
+    font-size: 13px;
+    line-height: 20px;
+}
+.three-box-layout .card-inner .card .rating {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 35px;
+    font-weight: 400;
+    font-size: 13px;
+    line-height: 20px;
+    text-transform: uppercase;
+    margin-top: auto;
+}
+.three-box-layout .card-inner .card .rating p:last-child {
+    width: 48px;
+}
+.three-box-layout .card-inner .card .rating * {
+    font-family: "JetBrains Mono", monospace;
+}
+.three-box-layout .card-inner .card .rating .icon {
+    color: #F7BA44;
+    font-size: 16px;
+}
+.three-box-layout .card-main .card-bottom {
+    text-align: left;
+    margin: 25px 0;
+}
+.three-box-layout .card-main .card-bottom a {
+    font-family: 'BDO Grotesk';
+    font-weight: 400;
+    font-size: 13px;
+    line-height: 24px;
+    text-decoration: underline;
+}
+.three-box-layout .btn-row a {
+    padding: 8px 19px;
+}
+/* End City Page CSS */
+
+/* Start Single Blog Page CSS */
+.single .inner-content {
+    padding: 40px 0 72px;
+}
+.single .inner-content .breadcrumb {
+    padding: 0 40px 40px;
+    font-size: 12px;
+    line-height: 20px;
+}
+.single .inner-content .breadcrumb a {
+    font-weight: 700;
+}
+.single .inner-content .left-area .entry-meta {
+    font-size: 13px;
+    line-height: 20px;
+    color: #1A1A1A;
+    text-transform: uppercase;
+    padding: 24px 0 28px;
+    display: flex;
+    justify-content: space-between;
+}
+.single .inner-content .left-area .entry-meta .cat-links,
+.single .inner-content .left-area .entry-meta .edit-link {
+    display: none;
+}
+.single .inner-content .left-area .entry-meta .tags-links {
+    position: relative;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+.single .inner-content .left-area .entry-meta .tags-links::before {
+    content: '';
+    display: block;
+    width: 12px;
+    height: 12px;
+    background-color: #EC2128;
+}
+.single .inner-content .left-area article h1 {
+    font-family: 'Source Serif 4';
+    font-weight: 400;
+    font-size: 54px;
+    line-height: 54px;
+    color: #171717;
+}
+.single .inner-content .post-content {
+    display: flex;
+    justify-content: space-between;
+    padding: 0 40px;
+}
+.single .inner-content .post-content .left-area {
+    width: 700px;
+}
+.single .inner-content .post-content .left-area img {
+    width: 100%;
+    height: auto;
+}
+.single .inner-content .post-content .post-thumbnail {
+    padding-bottom: 34px;
+}
+.single .inner-content .post-content .left-area figcaption.wp-caption-text {
+    font-size: 12px;
+    line-height: 20px;
+    color: #171717;
+    padding-top: 3px;
+}
+.single .inner-content .post-content .entry-content {
+    font-family: 'Source Serif Pro';
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 28px;
+    color: #171717;
+}
+.single .inner-content .post-content .entry-content p {
+    font-family: 'Source Serif Pro';
+    padding-bottom: 20px;
+}
+.single .inner-content .post-content .entry-content .wp-block-heading {
+    font-size: 42px;
+    line-height: 54px;
+    padding-bottom: 16px;
+    border-bottom: 1px solid #000000;
+    margin-bottom: 30px;
+    margin: 30px 0px;
+}
+.single .inner-content .post-content .left-area .addtoany_shortcode {
+    border-bottom: 1px solid #000000;
+}
+.single .inner-content .post-content .left-area .addtoany_shortcode .addtoany_list {
+    display: flex;
+    align-items: center;
+    gap: 32px;
+    padding: 30px 0px 48px;
+    border-bottom: 4px solid #000000;
+    margin-bottom: 8px;
+}
+.single .inner-content .post-content .left-area .addtoany_shortcode a .a2a_svg {
+    display: none;
+}
+.single .inner-content .post-content .left-area .addtoany_shortcode a::after {
+    content: "";
+    width: 15px;
+    height: 15px;
+    display: block;
+    background-image: url('assets/images/twitter.svg');
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center;
+}
+.single .inner-content .post-content .left-area .addtoany_shortcode a:hover::after {
+    filter: invert(24%) sepia(47%) saturate(3707%) hue-rotate(339deg) brightness(95%) contrast(111%);
+
+
+}
+.single .inner-content .post-content .left-area .addtoany_shortcode a.a2a_button_facebook::after {
+    background-image: url('assets/images/facebook.svg');
+}
+.single .inner-content .post-content .left-area .addtoany_shortcode a.a2a_button_copy_link::after {
+    background-image: url('assets/images/copy-link.svg');
+}
+.single .inner-content .post-content .right-area {
+    width: 350px;
+}
+.single .inner-content .post-content .right-area .banner img {
+    width: 100%;
+    height: 250px;
+    object-fit: cover;
+    padding-left: 45px;
+    padding: 17px 0 0 45px;
+}
+.single .inner-content .post-content .right-area .recent-post .wp-block-heading {
+    margin-bottom: 32px;
+    font-family: 'Inter';
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 100%;
+    letter-spacing: -0.02em;
+    text-transform: uppercase;
+    color: #1A1A1A;
+}
+.single .inner-content .post-content .right-area .widget_block {
+    margin-bottom: 36px;
+}
+.single .inner-content .post-content .right-area .widget_block:last-child {
+    margin-bottom: 0;
+}
+.single .inner-content .post-content .right-area .wp-block-latest-posts__list {
+    counter-reset: item;
+}
+.single .inner-content .post-content .right-area .wp-block-latest-posts__list li {
+    counter-increment: item;
+    list-style: none;
+    position: relative;
+    padding-bottom: 14px;
+    margin-bottom: 28px;
+}
+.single .inner-content .post-content .right-area .wp-block-latest-posts__list li::before {
+    content: counter(item, decimal-leading-zero);
+    position: absolute;
+    left: 0;
+    top: 0;
+    font-size: 20px;
+    line-height: 24px;
+}
+.single .inner-content .post-content .right-area .wp-block-latest-posts__list li:not(:last-child)::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 160px;
+    height: 1px;
+    background-color: #1A1A1A;
+}
+.single .inner-content .post-content .right-area .wp-block-latest-posts__list li * {
+    padding-left: 65px;
+    display: block;
+}
+.single .inner-content .post-content .right-area .wp-block-latest-posts__list li a {
+    margin-bottom: 16px;
+    line-height: 112%;
+}
+.single .inner-content .post-content .right-area .wp-block-latest-posts__list li time {
+    font-size: 12px;
+    line-height: 18px;
+}
+.related-post-content {
+    margin-top: 113px;
+}
+.single .related-post-content .related-posts .post-listing {
+    margin-top: 45px;
+}
+.single .related-post-content .post-listing .post-item .post-details .post-category {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+.single .related-post-content .post-listing .post-item .post-details .post-category::before {
+    content: "";
+    width: 11px;
+    height: 11px;
+    background-color: #1F1F1F;
+    display: block;
+}
+/* End Single Blog Page CSS */
+/* **************************************************************************** */
+/* *************************** Start Responsive CSS *************************** */
+/* **************************************************************************** */
+@media only screen and (max-width: 1232px) {
+    /* Start common CSS */
+    .container {
+        max-width: 980px;
+    }
+    div.section,
+    .page-template-default .entry-content > *:not(.hero-banner-block) {
+        padding: 30px 0;
+    }
+    /* End common CSS */
+    /* Start Abogados Accident Section CSS */
+    .abogados-accident .three-column-layout {
+        gap: 15px;
+    }
+    .abogados-accident .three-column-layout .wp-block-group img {
+        min-height: 268px;
+    }
+    .abogados-accident .three-column-layout .wp-block-group h3 {
+        margin: 10px 0 5px;
+        font-size: 22px;
+    }
+    /* End Abogados Accident Section CSS */
+        
+    /* Start "Abogados de Accidentes de Carros" Section CSS */
+    .four-column-layout .card-inner .card {
+        padding: 18px 12px 22px;
+    }
+    .btn-row a {
+        padding: 4px 13px;
+        font-size: 12px;
+    }
+    .four-column-layout .card-inner .card .rating {
+        margin-bottom: 25px;
+    }
+    .btn-row {
+        gap: 8px;
+    }
+    .four-column-layout .card-inner .card .heading h3 {
+        font-size: 16px;
+        line-height: 20px;
+    }
+    .four-column-layout .card-inner .card .heading img {
+        width: 45px;
+        height: auto;
+    }
+    .four-column-layout .card-inner .card .heading + p {
+        padding: 16px 0 10px;
+    }
+    /* End "Abogados de Accidentes de Carros" Section CSS */
+
+    /* Start "Abogados de Accidentes de Carros por Ciudades" Section CSS */
+    .carros-por-ciudades .state_inner h3 {
+        font-size: 18px;
+        line-height: 28px;
+    }
+    .post-listing .post-details a.read-more,
+    .carros-por-ciudades .state_inner a {
+        font-size: 12px;
+    }
+    .post-listing .post-details a.read-more::after,
+    .carros-por-ciudades .state_inner a::after {
+        bottom: 3px;
+        background-size: 13px;
+    }
+    .carros-por-ciudades .wp-block-group-is-layout-grid {
+        gap: 20px;
+        margin-bottom: 20px;
+    }
+    /* End "Abogados de Accidentes de Carros por Ciudades" Section CSS */
+
+    /* Start "Últimas Novedades" Section CSS */
+    .post-listing .post-title {
+        margin-top: 10px;
+        margin-bottom: 30px;
+        line-height: 24px;
+        font-size: 18px;
+    }
+    .post-listing {
+        margin-top: 0;
+    }
+    .post-listing .post-meta {
+        font-size: 12px;
+        line-height: 16px;
+    }
+    .post-listing .post-item img {
+        max-height: 212px;
+        height: 212px;
+    }
+    /* End "Últimas Novedades" Section CSS */
+
+    /* Start "Qué tener en cuenta antes de elegir un abogado" Section CSS */
+    .image-text-content .wp-block-media-text figure {
+        padding-right: 45px;
+    }
+    .image-text-content .wp-block-media-text > .wp-block-media-text__content p {
+        padding-bottom: 15px;
+    }
+    /* End "Qué tener en cuenta antes de elegir un abogado" Section CSS */
+
+    /* Start "Entidades que apoyan a la comunidad latina en Estados Unidos" Section CSS */
+    .organization .wp-block-gallery {
+        padding-right: 124px;
+        padding-left: 40px;
+        column-gap: 15px !important;
+        row-gap: 20px !important;
+    }
+    .organization .wp-block-gallery.has-nested-images figure.wp-block-image img {
+        max-height: 85px;
+    }
+    .organization .wp-block-gallery .wp-block-image {
+        max-width: calc(calc(100% / 3) - 10px) !important;
+    }
+    .organization .wp-block-columns {
+        flex-wrap: nowrap !important;
+    }
+    /* End "Entidades que apoyan a la comunidad latina en Estados Unidos" Section CSS */
+
+    /* Start Single Blog Page CSS */
+    .related-post-content {
+        margin-top: 50px;
+    }
+    .single .inner-content .post-content .right-area .banner img {
+        padding-left: 0px;
+    }
+    .single .inner-content .post-content {
+        flex-direction: column;
+        gap: 40px;
+    }
+    .single .inner-content .post-content .left-area {
+        width: 100%;
+    }
+    .single .inner-content .post-content .right-area {
+        width: 100%;
+    }
+    /* End Single Blog Page CSS */
+
+}
+@media only screen and (max-width: 991px) {
+    /* Start common CSS */
+    .container {
+        max-width: 767px;
+    }
+    div.section,
+    .page-template-default .entry-content > *:not(.hero-banner-block) {
+        padding: 20px 0;
+    }
+    /* End common CSS */
+    /* Start Abogados Accident Section CSS */
+    .abogados-accident .three-column-layout .wp-block-group img {
+        min-height: 205px;
+    }
+    /* End Abogados Accident Section CSS */
+        
+    /* Start "Abogados de Accidentes de Carros" Section CSS */
+    .four-column-layout .card-inner { 
+        gap: 16px;
+        flex-wrap: wrap;
+    }
+    .four-column-layout .card-inner .card {
+        width: calc(calc(100% / 2) - 8px);
+    }
+    .four-column-layout .card-inner .card .heading {
+        align-items: center;
+    }
+    .four-column-layout .card-inner .card .rating {
+        margin-bottom: 20px;
+    }
+    /* End "Abogados de Accidentes de Carros" Section CSS */
+
+    /* Start "Abogados de Accidentes de Carros por Ciudades" Section CSS */
+    .carros-por-ciudades .wp-block-group-is-layout-grid {
+        gap: 15px;
+        margin-bottom: 15px;
+    }
+    .carros-por-ciudades .state_inner {
+        padding: 12px 9px;
+    }
+    .carros-por-ciudades .state_inner h3 {
+        font-size: 16px;
+        line-height: 25px;
+        text-align: left;
+    }
+    /* End "Abogados de Accidentes de Carros por Ciudades" Section CSS */
+
+    /* Start "Últimas Novedades" Section CSS */
+    .post-listing .post-item img {
+        max-height: 165px;
+        height: 165px;
+    }
+    /* End "Últimas Novedades" Section CSS */
+
+    /* Start "Qué tener en cuenta antes de elegir un abogado" Section CSS */
+    .image-text-content .wp-block-media-text figure {
+        padding-right: 0;
+        width: 100%;
+        grid-column: 1;
+        grid-row: 1;
+        margin-top: 10px;
+        margin-bottom: 20px;
+    }
+    .image-text-content .wp-block-media-text > .wp-block-media-text__content {
+        width: 100%;
+        margin-left: 0;
+        grid-column: 1;
+        grid-row: 2;
+    }
+    .image-text-content .wp-block-media-text {
+        grid-template-columns: repeat(1, minmax(0, 1fr));
+    }
+    .image-text-content .wp-block-media-text h2 {
+        text-align: left;
+    }
+    /* End "Qué tener en cuenta antes de elegir un abogado" Section CSS */
+
+    /* Start "Entidades que apoyan a la comunidad latina en Estados Unidos" Section CSS */
+    .organization .wp-block-gallery {
+        padding-right: 44px;
+        padding-left: 0;
+    }
+    .organization {
+        margin-bottom: 20px;
+    }
+    /* End "Entidades que apoyan a la comunidad latina en Estados Unidos" Section CSS */
+
+    /* Start Single Blog Page CSS */
+    .single .inner-content .left-area article h1 {
+        font-size: 44px;
+        line-height: 44px;
+    }
+    .single .inner-content .post-content .entry-content .wp-block-heading {
+        font-size: 36px;
+        line-height: 44px;
+    }
+    /* End Single Blog Page CSS */
+}
+@media only screen and (max-width: 768px) {
+    .page-template-templates main .entry-content > p,
+    .page-template-templates main .entry-content > h2 {
+        padding: 0;
+    }
+    .wp-block-group .wp-block-heading {
+        margin: 30px 0;
+    }
+    .page-template-default h2.wp-block-heading,
+    .page-template-templates h2.wp-block-heading {
+        font-size: 28px;
+        line-height: 36px;
+    }
+    .heading-dot::after {
+        content: unset;
+    }
+    .entry-content h2 {
+        margin-bottom: 16px;
+    }
+}
+@media only screen and (max-width: 767px) {
+    /* Start common CSS */
+    .home h2 {
+        margin-bottom: 20px;
+    }
+    /* End common CSS */
+    /* Start Header CSS */
+    .mobile-nav {
+        display: block;
+        color: #fff;
+    }
+    .desktop-nav {
+        display: none;
+    }
+    /* End Header CSS */
+    /* Start Footer CSS */
+    footer .inner-sec {
+        flex-direction: column;
+    }
+    footer .right,
+    footer .left {
+        width: 100%;
+        max-width: 100%;
+    }
+    footer .right {
+        text-align: center;
+    }
+    footer {
+        padding: 30px 0;
+    }
+    /* End Footer CSS */
+    /* Start Hero Section CSS  */
+    .hero-banner-block h1 {
+        font-size: 32px;
+        line-height: 32px;
+    }
+    .hero-banner-block h1,
+    .hero-banner-block .small-text, 
+    .hero-banner-block h1 + p {
+        max-width: 540px;
+    }
+    .hero-banner-block {
+        padding: 93px 0 40px;
+    }
+    /* End Hero Section CSS  */
+    /* Start Abogados Accident Section CSS */
+    .abogados-accident .three-column-layout .wp-block-group img {
+        min-height: unset;
+    }
+    .abogados-accident .three-column-layout {
+        flex-direction: column;
+        align-items: center;
+        gap: 20px;
+    }
+    .abogados-accident .three-column-layout .wp-block-group {
+        width: 100%;
+        max-width: 400px;
+    }
+    .abogados-accident .three-column-layout .wp-block-group p,
+    .abogados-accident .three-column-layout .wp-block-group h3 {
+        text-align: center;
+    }
+    .abogados-accident .three-column-layout .wp-block-group h3 br {
+        display: none;
+    }
+    /* End Abogados Accident Section CSS */
+
+    /* Start "Abogados de Accidentes de Carros" Section CSS */
+    .four-column-layout  .wp-block-group.container > div {
+        text-align: center;
+    }
+    .four-column-layout  .wp-block-group.container > div .card-main {
+        text-align: left;
+    }
+    .four-column-layout .card-main .card-bottom {
+        text-align: center;
+        margin-top: 18px;
+    }
+    /* End "Abogados de Accidentes de Carros" Section CSS */
+
+    /* Start "Abogados de Accidentes de Carros por Ciudades" Section CSS */
+    .carros-por-ciudades .wp-block-group-is-layout-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+    .carros-por-ciudades .wp-block-group-is-layout-grid {
+        gap: 20px;
+        margin-bottom: 20px;
+    }
+    .carros-por-ciudades .state_inner {
+        padding: 16px;
+    }
+    /* End "Abogados de Accidentes de Carros por Ciudades" Section CSS */
+
+    /* Start "Últimas Novedades" Section CSS */
+    .post-listing {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        row-gap: 16px;
+    }    
+    .post-listing .post-title {
+        margin-bottom: 20px;
+    }
+    .post-listing .post-item:nth-child(2n) {
+        border-right: 0.88px solid #D9D9D9;
+    }
+    .post-listing .post-item:nth-child(3n) {
+        border-right: 0;
+    }
+    .post-listing .post-item img {
+        max-height: 229px;
+        height: 100%;
+    }
+    /* End "Últimas Novedades" Section CSS */
+
+    /* Start "Entidades que apoyan a la comunidad latina en Estados Unidos" Section CSS */
+    .home .organization h2 {
+        margin-bottom: 20px;
+    }
+    .organization .wp-block-columns {
+        flex-wrap: wrap !important;
+        max-width: 536px;
+        gap: 0;
+    }
+    .organization .wp-block-gallery {
+        max-width: 300px;
+        margin: 0 auto;
+        padding-right: 0;
+    }
+    .organization .wp-block-gallery.has-nested-images figure.wp-block-image img {
+        margin: 0 auto;
+    }
+    /* End "Entidades que apoyan a la comunidad latina en Estados Unidos" Section CSS */
+
+    /* Start Single Blog Page CSS */
+    .single .inner-content .left-area article h1 {
+        font-size: 34px;
+        line-height: 34px;
+    }
+    .single .inner-content .post-content .entry-content .wp-block-heading {
+        font-size: 30px;
+        line-height: 36px;
+        padding-bottom: 12px;
+        margin: 20px 0px;
+    }
+    .single .inner-content .post-content {
+        padding: 0px;
+    }
+    .single .inner-content .breadcrumb {
+        padding: 0 0px 20px;
+    }
+    .single .inner-content .post-content .post-thumbnail {
+        padding-bottom: 20px;
+    }
+    .single .inner-content .post-content .left-area .addtoany_shortcode .addtoany_list {
+        padding: 20px 0px 35px;
+    }
+    .related-post-content {
+        margin-top: 30px;
+    }
+    .single .related-post-content .related-posts .post-listing {
+        margin-top: 20px;
+    }
+    .single .post-listing .post-item:nth-child(3n) {
+        border-right: 1px solid #D9D9D9;
+    }
+    /* End Single Blog Page CSS */
+
+}
+@media only screen and (max-width: 575px) {
+
+    /* Start "Abogados de Accidentes de Carros" Section CSS */
+    .four-column-layout .card-inner .card {
+        width: 100%;
+    }
+    /* End "Abogados de Accidentes de Carros" Section CSS */
+
+    /* Start "Abogados de Accidentes de Carros por Ciudades" Section CSS */
+    .carros-por-ciudades .wp-block-group-is-layout-grid {
+        gap: 15px;
+        margin-bottom: 15px;
+    }
+    .carros-por-ciudades .state_inner {
+        padding: 12px;
+    }
+    /* End "Abogados de Accidentes de Carros por Ciudades" Section CSS */
+
+    /* Start "Últimas Novedades" Section CSS */
+    .post-listing {
+        grid-template-columns: repeat(1, minmax(0, 1fr));
+    }
+    .post-listing .post-thumb {
+        width: 100%;
+    }
+    .post-listing .post-item {
+        border-right-width: 0.88px;
+    }
+    .post-listing .post-item:nth-child(3n) {
+        border-right: 0.88px solid #D9D9D9;
+    }
+    .post-listing .post-item img {
+        max-height: 100%;
+    }
+    /* End "Últimas Novedades" Section CSS */
 }
 
-.post-title {
-    margin-bottom: 15px;
-}
 
-.read-more {
-    text-decoration: none;
-    color: #0073aa;
-    margin-top: auto; /* Push "Read More" link to bottom */
-}
-
+/* End Responsive CSS */

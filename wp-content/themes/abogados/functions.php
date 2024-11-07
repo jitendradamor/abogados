@@ -163,14 +163,14 @@ add_action( 'widgets_init', 'abogados_widgets_init' );
  */
 function abogados_scripts() {
 	$version = time();
+
 	wp_enqueue_style( 'mmenu-style', get_template_directory_uri() . '/assets/css/mmenu.css', array(), $version );
-	wp_enqueue_style( 'mburger-style', get_template_directory_uri() . '/assets//css/mburger.css', array(), $version );
+    wp_enqueue_style( 'mburger-style', get_template_directory_uri() . '/assets/css/mburger.css', array(), $version );
 	wp_enqueue_style( 'abogados-style', get_stylesheet_uri(), array(), $version );
 	wp_style_add_data( 'abogados-style', 'rtl', 'replace' );
 
-	
+	wp_enqueue_script( 'abogados-navigation', get_template_directory_uri() . '/js/navigation.js', array(), _S_VERSION, true );
 	wp_enqueue_script( 'mmenu-js', get_template_directory_uri() . '/assets/js/mmenu.js', array(), $version, true );
-	wp_enqueue_script( 'abogados-navigation', get_template_directory_uri() . '/assets/js/navigation.js', array(), $version, true );
 	wp_enqueue_script( 'custom-js', get_template_directory_uri() . '/assets/js/custom.js', array(), $version, true );
 
 	if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
@@ -234,10 +234,10 @@ function abogados_post_listing_shortcode($atts) {
     $args = array(
         'post_type' => 'post',
         'posts_per_page' => 6, // Change as needed
-        'post_status' => 'published', // Only show published posts
+        'post_status' => 'publish', // Only show publish posts
     );
     $query = new WP_Query($args);
-
+	
     ob_start();
 
     if ($query->have_posts()) {
@@ -255,10 +255,32 @@ function abogados_post_listing_shortcode($atts) {
                 <div class="post-details">
                     <div class="post-meta">
                         <span class="post-category"><?php the_category(', '); ?></span>
-                        <span class="post-date"><?php echo date_i18n( 'd M Y', strtotime( get_the_date() ) ); ?></span>
+                        <?php
+							$month = get_the_date('F'); 
+
+							$months_in_spanish = [
+								'January' => ['Enero', 'Ene'],
+								'February' => ['Febrero', 'Feb'],
+								'March' => ['Marzo', 'Mar'],
+								'April' => ['Abril', 'Abr'],
+								'May' => ['Mayo', 'May'],
+								'June' => ['Junio', 'Jun'],
+								'July' => ['Julio', 'Jul'],
+								'August' => ['Agosto', 'Ago'],
+								'September' => ['Septiembre', 'Sep'],
+								'October' => ['Octubre', 'Oct'],
+								'November' => ['Noviembre', 'Nov'],
+								'December' => ['Diciembre', 'Dic'],
+							];
+							$translated_month_full = isset($months_in_spanish[$month]) ? $months_in_spanish[$month][0] : $month;
+							$translated_month_short = isset($months_in_spanish[$month]) ? $months_in_spanish[$month][1] : '';
+
+							echo "<span class='post-date'>" . get_the_date('d')." ".$translated_month_short." " . get_the_date('Y') . "</span>";
+						?> 
+						
                     </div>
-                    <h3 class="post-title"><?php the_title(); ?></h3>
-                    <a href="<?php the_permalink(); ?>" class="read-more">Seguir Leyendo</a>
+                    <a href="<?php echo get_the_permalink(); ?>"><h3 class="post-title"><?php echo get_the_title(); ?></h3></a>
+                    <a href="<?php echo get_the_permalink(); ?>" class="read-more">Seguir Leyendo</a>
                 </div>
             </div>
             <?php
@@ -270,3 +292,27 @@ function abogados_post_listing_shortcode($atts) {
     return ob_get_clean();
 }
 add_shortcode('abogados_post_listing', 'abogados_post_listing_shortcode');
+
+/**
+ * Custom breadcrumbs function
+ */
+function custom_breadcrumbs() {
+    // Settings
+    $separator = ' | ';
+    $home = 'Inicio'; // Home text
+    $post_label = 'Noticias'; // Label for the post
+    $post_title = get_the_title(); // Get the current post title
+
+    // Breadcrumb structure
+    echo '<nav class="breadcrumb">';
+		echo '<a href="' . esc_url(home_url()) . '">' . esc_html($home) . '</a>';
+		
+		// Link to the post list (e.g., all posts or blog)
+		echo $separator . '<a href="' . esc_url(home_url('/blog')) . '">' . esc_html($post_label) . '</a>'; // Adjust the URL if needed
+		
+		// Post label and title
+		echo $separator . '<span>' . esc_html($post_title) . '</span>';
+    echo '</nav>';
+}
+
+

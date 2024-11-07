@@ -1,10 +1,10 @@
 document.addEventListener(
 	"DOMContentLoaded", () => {
-		new Mmenu("#menu", {
+		new Mmenu("#mobile-menu", {
 			"theme": "light",
 			"slidingSubmenus": true,
 			"offCanvas": {
-				"position": "right-front"
+				"position": "left-front"
 			},
 			"setSelected": {
 				"hover": true
@@ -12,9 +12,3 @@ document.addEventListener(
 		});
 	}
 );
-
-
-
-
-
-

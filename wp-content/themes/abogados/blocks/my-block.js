@@ -51,7 +51,7 @@ registerBlockType('my-theme/my-block', {
         },
         showSearchBox: {
             type: 'boolean',
-            default: false
+            default: true
         }
     },
     edit: function (props) {
@@ -130,7 +130,6 @@ registerBlockType('my-theme/my-block', {
                 style: {
                     backgroundImage: `url(${backgroundImage})`,
                     backgroundColor: backgroundColor,
-                    padding: '20px',
                     textAlign: 'center'
                 }
             },
@@ -138,30 +137,32 @@ registerBlockType('my-theme/my-block', {
                 wp.element.createElement('h2', { style: { color: textColor } }, title),
                 wp.element.createElement('p', { style: { color: textColor } }, description),
                 wp.element.createElement('div', {
-                    style: { display: 'flex', alignItems: 'center', justifyContent: 'center', marginTop: '20px' }
+                    className: 'hero-form'
                 },
-                    wp.element.createElement(Button, {
-                        className: 'search-icon',
-                        onClick: () => setAttributes({ showSearchBox: !showSearchBox }),
-                        style: { marginRight: '10px' }
-                    },
-                        wp.element.createElement('span', { className: 'dashicons dashicons-search' }) // Search icon
-                    ),
                     showSearchBox && wp.element.createElement('form', { onSubmit: handleSearch },
                         wp.element.createElement('input', {
                             type: 'text',
                             placeholder: searchPlaceholder,
                             value: searchQuery,
-                            onChange: (e) => setAttributes({ searchQuery: e.target.value }), // Update search query
-                            style: { padding: '10px', fontSize: '16px', width: '200px', marginRight: '10px' }
+                            onChange: (e) => setAttributes({ searchQuery: e.target.value }),
+                            required: true // Required field added
                         }),
-                        wp.element.createElement(Button, {
-                            isPrimary: true,
+                        wp.element.createElement('button', {
                             type: 'submit',
-                            className: 'search-icon',
-                            style: { padding: '10px' }
-                        },
-                            wp.element.createElement('span', { className: 'dashicons dashicons-search' }) // Icon for search button
+                            className: 'search-icon'
+                          },
+                            wp.element.createElement('svg', { 
+                                width: "18", 
+                                height: "18", 
+                                viewBox: "0 0 18 18", 
+                                fill: "none", 
+                                xmlns: "http://www.w3.org/2000/svg"
+                            },
+                              wp.element.createElement('path', { 
+                                  d: "M16.6 18L10.3 11.7C9.8 12.1 9.225 12.4167 8.575 12.65C7.925 12.8833 7.23333 13 6.5 13C4.68333 13 3.14583 12.3708 1.8875 11.1125C0.629167 9.85417 0 8.31667 0 6.5C0 4.68333 0.629167 3.14583 1.8875 1.8875C3.14583 0.629167 4.68333 0 6.5 0C8.31667 0 9.85417 0.629167 11.1125 1.8875C12.3708 3.14583 13 4.68333 13 6.5C13 7.23333 12.8833 7.925 12.65 8.575C12.4167 9.225 12.1 9.8 11.7 10.3L18 16.6L16.6 18ZM6.5 11C7.75 11 8.8125 10.5625 9.6875 9.6875C10.5625 8.8125 11 7.75 11 6.5C11 5.25 10.5625 4.1875 9.6875 3.3125C8.8125 2.4375 7.75 2 6.5 2C5.25 2 4.1875 2.4375 3.3125 3.3125C2.4375 4.1875 2 5.25 2 6.5C2 7.75 2.4375 8.8125 3.3125 9.6875C4.1875 10.5625 5.25 11 6.5 11Z", 
+                                  fill: "#1C1B1F" 
+                              })
+                            )
                         )
                     ),
                     searchResultText && wp.element.createElement('p', { style: { color: textColor } }, searchResultText) // Display the search result text
@@ -178,24 +179,16 @@ registerBlockType('my-theme/my-block', {
             style: {
                 backgroundImage: `url(${backgroundImage})`,
                 backgroundColor: backgroundColor,
-                padding: '20px',
                 textAlign: 'center'
             }
         },
         wp.element.createElement('div', { className: 'container' },
-            wp.element.createElement('span', { style: { color: textColor } }, smallTitle),
+            wp.element.createElement('p', { className: 'small-text', style: { color: textColor } }, smallTitle),
             wp.element.createElement('h1', { style: { color: textColor } }, title),
-            wp.element.createElement('p', { style: { color: textColor } }, description),
+            wp.element.createElement('p', { className: 'title-desc', style: { color: textColor } }, description),
             wp.element.createElement('div', {
-                style: { display: 'flex', alignItems: 'center', justifyContent: 'center', marginTop: '20px' }
+                className: 'hero-form'
             },
-                wp.element.createElement('div', {
-                    className: 'search-icon',
-                    onClick: () => setAttributes({ showSearchBox: !showSearchBox }),
-                    style: { cursor: 'pointer', marginRight: '10px' }
-                },
-                    wp.element.createElement('span', { className: 'dashicons dashicons-search' }) // Search icon
-                ),
                 showSearchBox && wp.element.createElement('form', {
                     action: '/abogados',
                     method: 'GET',
@@ -205,18 +198,28 @@ registerBlockType('my-theme/my-block', {
                         placeholder: searchPlaceholder,
                         name: 's',
                         defaultValue: searchQuery,
-                        style: { padding: '10px', fontSize: '16px', width: '200px', marginRight: '10px' }
+                        required: true // Required field added
                     }),
                     wp.element.createElement('button', {
                         type: 'submit',
-                        className: 'search-icon',
-                        style: { padding: '10px' }
-                    },
-                        wp.element.createElement('span', { className: 'dashicons dashicons-search' }) // Icon for search button
+                        className: 'search-icon'
+                      },
+                        wp.element.createElement('svg', { 
+                            width: "18", 
+                            height: "18", 
+                            viewBox: "0 0 18 18", 
+                            fill: "none", 
+                            xmlns: "http://www.w3.org/2000/svg"
+                        },
+                          wp.element.createElement('path', { 
+                              d: "M16.6 18L10.3 11.7C9.8 12.1 9.225 12.4167 8.575 12.65C7.925 12.8833 7.23333 13 6.5 13C4.68333 13 3.14583 12.3708 1.8875 11.1125C0.629167 9.85417 0 8.31667 0 6.5C0 4.68333 0.629167 3.14583 1.8875 1.8875C3.14583 0.629167 4.68333 0 6.5 0C8.31667 0 9.85417 0.629167 11.1125 1.8875C12.3708 3.14583 13 4.68333 13 6.5C13 7.23333 12.8833 7.925 12.65 8.575C12.4167 9.225 12.1 9.8 11.7 10.3L18 16.6L16.6 18ZM6.5 11C7.75 11 8.8125 10.5625 9.6875 9.6875C10.5625 8.8125 11 7.75 11 6.5C11 5.25 10.5625 4.1875 9.6875 3.3125C8.8125 2.4375 7.75 2 6.5 2C5.25 2 4.1875 2.4375 3.3125 3.3125C2.4375 4.1875 2 5.25 2 6.5C2 7.75 2.4375 8.8125 3.3125 9.6875C4.1875 10.5625 5.25 11 6.5 11Z", 
+                              fill: "#1C1B1F" 
+                          })
+                        )
                     )
                 )
             ),
-            wp.element.createElement('p', { style: { color: textColor } }, afterSearchText),
+            wp.element.createElement('p', { className: 'bottom-text', style: { color: textColor } }, afterSearchText),
         ));
     }
 });

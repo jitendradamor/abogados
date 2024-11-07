@@ -12,23 +12,26 @@ if ( ! function_exists( 'abogados_posted_on' ) ) :
 	 * Prints HTML with meta information for the current post-date/time.
 	 */
 	function abogados_posted_on() {
+
+		// Set the desired date format
+		$date_format = 'd M Y'; // Format: 28 SEP 2023
+
 		$time_string = '<time class="entry-date published updated" datetime="%1$s">%2$s</time>';
 		if ( get_the_time( 'U' ) !== get_the_modified_time( 'U' ) ) {
-			$time_string = '<time class="entry-date published" datetime="%1$s">%2$s</time><time class="updated" datetime="%3$s">%4$s</time>';
+			$time_string = '<time class="entry-date published" datetime="%1$s">%2$s</time>';
 		}
 
 		$time_string = sprintf(
 			$time_string,
 			esc_attr( get_the_date( DATE_W3C ) ),
-			esc_html( get_the_date() ),
+			esc_html( get_the_date($date_format) ),
 			esc_attr( get_the_modified_date( DATE_W3C ) ),
-			esc_html( get_the_modified_date() )
+			esc_html( get_the_modified_date($date_format) )
 		);
 
 		$posted_on = sprintf(
 			/* translators: %s: post date. */
-			esc_html_x( 'Posted on %s', 'post date', 'abogados' ),
-			'<a href="' . esc_url( get_permalink() ) . '" rel="bookmark">' . $time_string . '</a>'
+			'<span class="posted-on">' . $time_string . '</span>'
 		);
 
 		echo '<span class="posted-on">' . $posted_on . '</span>'; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
@@ -70,7 +73,7 @@ if ( ! function_exists( 'abogados_entry_footer' ) ) :
 			$tags_list = get_the_tag_list( '', esc_html_x( ', ', 'list item separator', 'abogados' ) );
 			if ( $tags_list ) {
 				/* translators: 1: list of tags. */
-				printf( '<span class="tags-links">' . esc_html__( 'Tagged %1$s', 'abogados' ) . '</span>', $tags_list ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
+				printf( '<span class="tags-links">' . esc_html__( '%1$s', 'abogados' ) . '</span>', $tags_list ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
 			}
 		}
 
@@ -124,11 +127,18 @@ if ( ! function_exists( 'abogados_post_thumbnail' ) ) :
 			return;
 		}
 
-		if ( is_singular() ) :
-			?>
+		if ( is_singular() ) : 
 
+		// Get the ID of the post thumbnail
+		$thumbnail_id = get_post_thumbnail_id();
+		$thumbnail_caption = wp_get_attachment_caption( $thumbnail_id ); // Get the caption
+		
+			?>
 			<div class="post-thumbnail">
 				<?php the_post_thumbnail(); ?>
+				<?php if ( $thumbnail_caption ) : ?>
+					<figcaption class="wp-caption-text"><?php echo esc_html( $thumbnail_caption ); ?></figcaption>
+				<?php endif; ?>
 			</div><!-- .post-thumbnail -->
 
 		<?php else : ?>

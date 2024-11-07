@@ -11,7 +11,7 @@ a {
 }
 .single-negocios .ab-wrapper {
   width: 100%;
-  max-width: 800px;
+  max-width: 890px;
   margin: 0 auto;
   padding: 24px 0;
 }
@@ -277,7 +277,10 @@ button:hover {
 }
 .abogados-sec {
   padding-top: 36px;
-  max-width: 900px !important;
+  max-width: 910px !important;
+  width: 100%;
+  margin: 0 auto;
+  margin-bottom: 60px;
 }
 .abogados-sec h4 {
   text-align: center;
@@ -373,7 +376,7 @@ button:hover {
 .page-template-default main,
 .page-template-templates main {
   width: 100%;
-  max-width: 900px;
+  max-width: 910px;
   padding: 30px 25px 0;
   margin: 0 auto;
   margin-top: 40px;
@@ -401,9 +404,9 @@ button:hover {
 .page-template-templates main .custom-widget-container {
   margin: 0;
   width: 100% !important;
-  margin-bottom: 16px;
-  min-width: calc(100% + 80px) !important;
-  margin-left: -40px;
+  margin-bottom: 36px;
+  min-width: calc(100% + 110px) !important;
+  margin-left: -55px;
 }
 .page-template-default .custom-widget-container img,
 .page-template-templates .custom-widget-container img {
@@ -431,6 +434,8 @@ button:hover {
   font-size: 40px;
   line-height: 48px;
   font-weight: 400;
+  color: #000000;
+  padding: 0 30px;
 }
 .negocios-ciudad {
   border: 1px solid #D9D9D9;
@@ -438,6 +443,8 @@ button:hover {
   color: #1A1A1A;
   border-radius: 4px;
   display: flex;
+  margin-bottom: 36px;
+
 }
 .negocios-ciudad .col1 {
   width: calc(100% - 293px);
@@ -521,6 +528,7 @@ button:hover {
 .negocios-ciudad .col2 iframe {
   max-height: 200px;
   margin-bottom: 24px;
+  width: 100%;
 }
 .negocios-ciudad .col2 .btn-row {
   display: flex;
@@ -737,6 +745,28 @@ button:hover {
   }
 }
 @media (max-width: 768px) {
+  .abogados-sec {
+    margin-bottom: 40px;
+  }
+  .page-template-default h1.entry-title, .page-template-templates h1.entry-title {
+    padding: 0;
+  }
+  .page-template-templates main {
+    margin-top: 15px;
+    margin-bottom: 35px;
+    padding-left: 15px;
+    padding-right: 15px;
+  }
+  .negocios-ciudad,
+  .page-template-default main .custom-widget-container,
+  .page-template-templates main .custom-widget-container {
+    margin-bottom: 16px;
+  }
+  .page-template-default .custom-widget-container:last-child,
+  .page-template-templates .custom-widget-container:last-child {
+    margin-top: 16px;
+    margin-bottom: 16px;
+  }
   .negocio-detalle .columna1 {
     width: 100%;
     float: left;
@@ -821,7 +851,7 @@ button:hover {
     width: 100% !important;
   }
   .estado-row {
-    width: calc(51% - 15px);
+    width: calc(51% - 16px);
   }
   .page-template-default .custom-widget-container img,
   .page-template-templates .custom-widget-container img {
