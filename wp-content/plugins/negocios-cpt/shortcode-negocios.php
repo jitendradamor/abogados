@@ -62,11 +62,12 @@ function mostrar_detalle_negocio_ciudad($atts)
         array(
             'city' => '',
             'cantidad_negocios' => 10, // Número predeterminado de negocios a mostrar
-            'boton_servicios_url' => '',
+            'page_url' => '',
             'category' => ''
         ), $atts, 'detalle_negocio');
 
     $ciudad = $atts['city'];
+    $page_url = $atts['page_url'];
     $cantidad_negocios = $atts['cantidad_negocios'];
 
     // echo "id".$cantidad_negocios;
@@ -146,16 +147,18 @@ function mostrar_detalle_negocio_ciudad($atts)
                                         <p><?php echo esc_html($estrellas); ?> <span class="icon">&#9733;</span></p><?php
                                     } ?>
                                 </div>
-                                <div class="btns">
-                                    <p><a href="<?php echo $permalink; ?>#contactar">Contactar</a></p>
-                                    <p><a href="<?php echo $permalink; ?>">Ver Servicios</a></p>
+                                <div class="btn-row">
+                                    <a class="dark-btn" href="<?php echo $permalink; ?>#contactar">Contactar</a>
+                                    <a class="light-btn" href="<?php echo $permalink; ?>">Ver Servicios</a>
                                 </div>
                         </div>
                 <?php } ?>
             </div>
-            <div class="card-bottom">
-                <a href="#">Ver más abogados de Carros</a>
-            </div>
+            <?php if($page_url) { ?>
+                <div class="card-bottom">
+                    <a href="#">Ver más abogados de Carros</a>
+                </div>
+            <?php } ?>
         </div>
     <?php
     }else {
@@ -304,8 +307,7 @@ function mostrar_detalles_negocio_estado($atts)
 {
     $atts = shortcode_atts(array(
         'state' => '',
-        'cantidad_negocios' => 10,
-        'boton_servicios_url' => '',
+        'cantidad_negocios' => -1,
         'category' => '',
     ), $atts, 'detalle_negocios');
 
@@ -488,11 +490,193 @@ function mostrar_detalles_negocio_estado($atts)
 
 add_shortcode('company_lists_using_state', 'mostrar_detalles_negocio_estado');
 
-function custom_abogados_widget_shortcode()
-{
+function custom_abogados_widget_shortcode() {
 	ob_start();
 	dynamic_sidebar('custom-html-ads-block'); // Display sidebar widget content
 	return ob_get_clean();
 }
 // Register shortcode
 add_shortcode('display_advertising_block', 'custom_abogados_widget_shortcode');
+
+
+// Shortcode function to display businesses by city with various options and details
+function shortcode_company($atts) {
+    $atts = shortcode_atts(
+        array(
+            'city' => '',
+            'cantidad_negocios' => 10, // Número predeterminado de negocios a mostrar
+            'category' => '',
+        ), $atts, 'detalle_negocio');
+
+    $ciudad = $atts['city'];
+    $cantidad_negocios = $atts['cantidad_negocios'];
+
+    ob_start();
+
+    // Consulta para obtener negocios por ciudad
+    $args = array(
+        'post_type' => 'negocios',
+        'posts_per_page' => $cantidad_negocios,
+        'meta_query' => array(
+            array(
+                'key' => 'negocios_ciudad',
+                'value' => $ciudad,
+                'compare' => '=',
+            ),
+        ),
+    );
+    if(isset($category) && $category != '') {
+
+        $args['tax_query'] = array(
+            'relation'=> 'OR',
+            array(
+            'taxonomy' => 'categorias_servicios',
+            'field' => 'slug',
+            'terms' => $category,
+            ),
+        );
+    }
+
+    $negocios_query = new WP_Query($args);
+    $plugin_dir_url = plugin_dir_url(__FILE__);
+    if ($negocios_query->have_posts()) {
+        $counter = 0; // Counter to track loop iterations
+        while ($negocios_query->have_posts()) {
+
+            $negocios_query->the_post();
+            $negocio_id = get_the_ID();
+            $permalink = get_permalink();
+            
+            $logo_url = get_post_meta($negocio_id, 'negocios_logo', true); // Retrieve logo URL
+
+            $direccion = get_post_meta($negocio_id, 'negocios_direccion', true);
+            $estrellas = get_post_meta($negocio_id, 'negocios_estrellas', true);
+            $reseñas = get_post_meta($negocio_id, 'negocios_reseñas', true);
+            $telefono = get_post_meta($negocio_id, 'negocios_telefono', true);
+            $sitio_web = get_post_meta($negocio_id, 'negocios_sitio_web', true);
+            $mapa = get_post_meta($negocio_id, 'negocios_mapa', true);
+
+            $dias = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'];
+            $counter++; // Increment counter after each iteration
+            ?>
+            <div class="negocios-ciudad">
+                <div class="col1">
+                    <div class="inner-row">
+                        <div class="col1-left">
+                            <!-- Display logo if URL is available -->
+                            <?php if (!empty($logo_url)) {
+                                echo '<img src="' . esc_url($logo_url) . '" alt="Logo" width="56" height="56">';
+                            } ?>
+                        </div>
+                        <div class="col1-right">
+                            <h3><?php echo get_the_title($negocio_id); ?></h3>  
+                            <div class="address">
+                                <img width="13" height="16" src="<?php echo $plugin_dir_url; ?>img/location_on.svg" alt="Phone Icon">
+                                <p><?php echo get_post_meta($negocio_id, 'negocios_direccion', true); ?></p>
+                            </div>
+                            <p class="rating"><span class="icon">&#9733;</span><?php echo esc_html($estrellas); ?> rating <span>y <?php echo esc_html($reseñas); ?> comentarios</span></p>
+                        </div>
+                    </div>
+                    <div class="col1-bottom">
+                        <ul class="info-contacto">                            
+                            <!-- Ícono de teléfono con SVG -->
+                            <li><img width="20" height="20" src="<?php echo $plugin_dir_url; ?>img/phone-icon.svg" alt="Phone Icon" ><a href="tel:<?php echo esc_html($telefono); ?>"><?php echo esc_html($telefono); ?></a></li>
+
+                            <!-- Ícono de sitio web con SVG -->
+                            <li><img width="20" height="20" src="<?php echo $plugin_dir_url; ?>img/link.svg" alt="Web Icon" ><a target="_blank" href="<?php echo esc_url($sitio_web);?>"><?php echo esc_html($sitio_web); ?></a></li>
+
+                            <!-- Ícono de calendario con SVG -->
+                            <li class="schedule-toggle"><img width="20" height="20" src="<?php echo $plugin_dir_url; ?>img/calendar-icon.svg" alt="Calendar Icon">
+
+                                <!-- Horarios de hoy -->
+                                <?php
+                                $dia_actual = strtolower(date('l'));
+                                $horario_apertura_hoy = get_post_meta($negocio_id, 'negocios_horario_apertura_' . $dia_actual, true);
+                                $horario_cierre_hoy = get_post_meta($negocio_id, 'negocios_horario_cierre_' . $dia_actual, true);
+                                $abierto_24_horas_hoy = get_post_meta($negocio_id, 'negocios_abierto_24_horas_' . $dia_actual, true);
+                                if ($abierto_24_horas_hoy) {
+                                    echo 'Open 24 hours';
+                                } elseif ($horario_apertura_hoy && $horario_cierre_hoy) {
+                                    echo ucfirst($dia_actual) . ': ' . esc_html($horario_apertura_hoy) . ' - ' . esc_html($horario_cierre_hoy);
+                                } else {
+                                    echo 'Closed';
+                                } ?>
+                                <span class="chevron">&#65122;</span>
+                                <div class="hidden-hours" style="display:none;">
+                                    <?php foreach ($dias as $dia) {
+                                        $horario_apertura = get_post_meta($negocio_id, 'negocios_horario_apertura_' . strtolower($dia), true);
+                                        $horario_cierre = get_post_meta($negocio_id, 'negocios_horario_cierre_' . strtolower($dia), true);
+                                        $abierto_24_horas = get_post_meta($negocio_id, 'negocios_abierto_24_horas_' . strtolower($dia), true);
+                                        echo '<p>';
+                                            if ($abierto_24_horas) {
+                                                echo ucfirst($dia) . ': Open 24 hours';
+                                            } elseif ($horario_apertura && $horario_cierre) {
+                                                echo ucfirst($dia) . ': ' . esc_html($horario_apertura) . ' - ' . esc_html($horario_cierre);
+                                            } else {
+                                                echo ucfirst($dia) . ': Closed';
+                                            }
+                                        echo '</p>';
+                                    } ?>
+                                </div>
+                            </li> <!-- Cierre de .hidden-hours -->
+                        </ul> <!-- Cierre de .info-contacto -->
+                        <?php
+                        $content = get_the_content($negocio_id);
+                        $trimmed_content = wp_trim_words( $content, 35, '... <a href="'. get_permalink() .'">Ver más</a>' ); ?>
+                        <p class="post-content"><?php echo $trimmed_content; ?></p>
+                    </div>
+                    <?php
+                        // Get the reviews
+                        $reviews = get_post_meta($negocio_id, 'negocios_reviews', true);
+
+                        if (!empty($reviews)) { ?>
+                            <div class="reviews-row">
+                                <div class="reviews-title">
+                                    <h2><span class="chevron">+</span><span class="text"><?php echo __('Testimonios Reales desde Google Maps', 'mi-plugin-negocios'); ?></span><img width="16" height="13" src="<?php echo $plugin_dir_url; ?>img/campaign.svg" alt="Campaign Icon"></h2>
+                                </div>
+
+                                <div class="review-details" style="display:none;">
+                                    <?php foreach ($reviews as $review) { ?>
+                                        <div class="review">
+                                            <h5><?php echo esc_html($review['text']); ?></h5>
+                                            <p><?php echo esc_html($review['description']); ?></p>
+                                            <?php // Check if URL is provided and not empty
+                                            if (!empty($review['url'])) { ?>
+                                                <div class="link">
+                                                    <a target="_blank" href="<?php echo esc_url($review['url']);?>"><?php echo __('Leer mas en Google', 'mi-plugin-negocios');?></a>
+                                                </div>
+                                            <?php } ?>
+                                        </div>
+                                    <?php } ?>
+                                </div>
+                            </div><!-- End .reviews -->
+                        <?php } ?>
+                </div>
+                <div class="col2">
+                    <?php echo $mapa; // Asegúrate de que este contenido sea seguro antes de imprimirlo directamente ?>
+                    <div class="btn-row">
+                        <a class="light-btn" href="<?php echo $permalink; ?>">Ver Servicios</a>
+                        <a class="dark-btn" href= tel:<?php echo esc_html($telefono); ?>>Contactar</a>
+                    </div>
+                </div>
+            </div><!-- End .negocios-ciudad -->
+            <?php 
+                if ($counter == 2) { // Check if it's the second iteration
+                    if ( is_active_sidebar( 'custom-html-ads-block' ) ) : ?>
+                        <?php dynamic_sidebar( 'custom-html-ads-block' ); ?>
+                    <?php endif;
+                }
+            ?>
+        <?php }
+        // Check if the counter is greater than 2 and if the custom HTML ads block widget area is active
+        if ($counter > 2 && is_active_sidebar('custom-html-ads-block')) {
+            dynamic_sidebar('custom-html-ads-block');
+        }
+        wp_reset_postdata();
+    } else {
+        echo '<p>No businesses found in ' . esc_html($ciudad) . '.</p>';
+    }
+    return ob_get_clean();
+}
+
+add_shortcode('company', 'shortcode_company');
